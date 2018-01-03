@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>房间预订</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" type="text/css">
+  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datetimepicker.fr.js"></script>
+</head>
+
+<script>
+   $(function () { $('#myModal').modal('hide')})});
+</script>
+
+<style>
+.error {color: #FF0000;}
+</style>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="font-family:Microsoft YaHei" href="welcome.html">影子宾馆</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="userProfile.html" style="font-family:Microsoft YaHei">会员个人信息</a></li>
+          <li><a href="roomList.html" style="font-family:Microsoft YaHei">房间信息查询</a></li>
+          <li><a href="reservation.html" style="font-family:Microsoft YaHei">房间预订</a></li>
+          <li><a href="myOrder.html" style="font-family:Microsoft YaHei">我的订单</a></li>
+          <li><a href="userLogoff.php" style="font-family:Microsoft YaHei">注销</a></li>
+        </ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+  <div class="container">
+     <div class="jumbotron">
+          <h1 style="font-family:Microsoft YaHei">房间预订</h1>
+      </div>
+
+      <div>
+        <form class="form-signin" role="form" action="" method="POST">
+        <div class="page-header" style="padding: 0px 150px;">
+          <h1 style="font-family:Microsoft YaHei;font-size:20px">步骤一：填写个人信息</h1>
+        </div>
+        <div style="padding: 0px 300px;">
+          <p style="font-family:Microsoft YaHei">住客姓名</p>
+          <input type="text" class="form-control" name="name_c" value="" required ><br/>
+          <p style="font-family:Microsoft YaHei">联系电话或电子邮箱</p>
+          <input type="text" class="form-control" name="phone_mail" placeholder="联系电话或电子邮箱" value="" required>
+          <p style="font-family:Microsoft YaHei">身份证号</p>
+          <input type="text" class="form-control" name="IDnum" placeholder="身份证号" required><br/>
+        </div>
+
+        <div class="page-header" style="padding: 0px 150px;">
+          <h1 style="font-family:Microsoft YaHei;font-size:20px">步骤二：选择房间</h1>
+          <span class="error"></span>
+        </div>
+
+        <div style="padding: 0px 300px;">
+          <div class = "form-group">
+           <label for = "type">选择房间类型</label>
+           <select id = "type" class = "form-control" name="select_type">
+            <option  value="普通大床房">普通大床房</option>
+            <option  value="普通双床房">普通双床房</option>
+            <option  value="豪华大床房">豪华大床房</option>
+            <option  value="豪华双床房">豪华双床房</option>
+            <option  value="精选大床房">精选大床房</option>
+            <option  value="精选双床房">精选双床房</option>
+           </select>
+          </div>
+
+          <div class = "form-group">
+           <label for = "floor">入住时间</label>
+            <div class="input-append date form_datetime">
+              <input id="dt1" name="set_dt1" size="16" class="form-control" type="text" value="" readonly>
+              <span class="add-on"><i class="icon-remove"></i></span>
+              <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <script type="text/javascript">
+              $("#dt1").datetimepicker({
+                  format: "yyyy-mm-dd hh:ii:ss",
+                  showMeridian: true,
+                  autoclose: true,
+                  todayBtn: true
+              });
+            </script>
+          </div>
+
+          <div class = "form-group">
+           <label for = "floor">退房时间</label>
+            <div class="input-append date form_datetime">
+              <input id="dt2" name="set_dt2" size="16" class="form-control" type="text" value="" readonly>
+              <span class="add-on"><i class="icon-remove"></i></span>
+              <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <script type="text/javascript">
+              $("#dt2").datetimepicker({
+                  format: "yyyy-mm-dd hh:ii:ss",
+                  showMeridian: true,
+                  autoclose: true,
+                  todayBtn: true
+              });
+            </script>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" name="accom_submit">提交</button>
+        </div>
+
+        </form>
+      </div>
+  </div>
+</body>
+</html>
