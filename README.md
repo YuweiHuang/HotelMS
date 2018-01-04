@@ -20,9 +20,13 @@ If you fetch my data successfully, you will see our index page when you visit "l
 
 DIRECTORY STRUCTURE
 -------------------
-
+      commons/            public config files
       controllers/        contains Web controller classes
+        action/           user or admin functions
       models/             contains model classes
+        dao/              database operations
+        entity/           entities
+        service/          user and admin services
       views/              contains view files for the Web application
         js/               javascript files
         css/              style sheet files
@@ -94,13 +98,37 @@ CORPORATION
 
 ### Models(Yuwei, Xinyu)
 
-2018.1.3~2018.1.5
->yuwei
-- bill 8
-- customer 12
-- membertype 3
+#### Entity(Yuwei)
 
->xinyu
-- roominfo 6
-- roomtype 5
-- useinfo 9
+- <del>订单bill</del>
+- <del>会员user</del>
+- <del>会员类型 membertype</del>
+- <del>普通管理员admin</del>
+- <del>房间room</del>
+- <del>房型roomtype</del>
+- <del>住客customer</del>
+
+#### EntityTest(Xinyu) 在1.4完成
+
+- 订单bill
+- 会员user
+- 会员类型 membertype
+- 普通管理员admin
+- 房间room
+- 房型roomtype
+- 住客customer
+
+#### DAO(Yuwei) 在1.4号24:00前完成
+- billDAO 8
+- customerDAO 12
+- membertypeDAO 3
+
+
+#### DAO(Xinyu) 在1.5号24:00前完成
+
+- roomDAO 6
+- roomtypeDAO 5
+- useDAO 9
+- adminDAO
+
+
