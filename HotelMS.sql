@@ -77,7 +77,12 @@ create table roomtype
 (
    room_type_id         int(10) not null auto_increment,/*房间类型id*/
    room_type            varchar(10) not null,/*房间类型名称*/
-   totalbed             smallint(1) not null,/*床总数*/
+   bedwidth             float  not null,/*床长度*/
+   roomarea             int(10)  not null,/*房间面积*/
+   wifi                 smallint(1) default 1,/*是否有wifi,1:有;0:无*/
+   bathroom             smallint(1) default 1,/*是否有独立卫浴,1:有;0:无*/
+   addbed               smallint(1) default 0,/*是否可加床,1:有;0:无*/
+   occupantnum          int(10)  not null,/*可入住人数*/
    price                float not null,/*价格*/
    deposit              float not null,/*押金*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
@@ -125,15 +130,17 @@ alter table userinfo add constraint FK_USERINFO_REFERENCE_MEMBERTY foreign key (
 /* insert test data                                              */
 /*==============================================================*/
 
-insert into roomtype (room_type, totalbed, price, deposit, delmark) values ('单人标准间',1, 100, 100, 0);
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('豪华大床房',1.8, 28, 1, 1, 0, 2, 233, 100, 0);
 
-insert into roomtype (room_type, totalbed, price, deposit, delmark) values ('双人标准间', 1, 200, 150, 0);
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('精选大床房',1.8, 30, 1, 1, 0, 2, 300, 100, 0);
 
-insert into roomtype (room_type, totalbed, price, deposit, delmark) values ('双床房', 2, 200, 100, 0);
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('豪华双床房',1.2, 33, 1, 1, 0, 2, 433, 100, 0);
 
-insert into roomtype (room_type, totalbed, price, deposit, delmark) values ('大床房', 1, 300, 100, 0);
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('商务双床房',1.2, 40, 1, 1, 0, 2, 500, 100, 0);
 
-insert into roomtype (room_type, totalbed, price, deposit, delmark) values ('总统套房', 2, 3000, 2000, 0);
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('豪华套房',1.8, 48, 1, 1, 1, 2, 600, 100, 0);
+
+insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occupantnum, price, deposit, delmark) values ('总统套房',1.8, 60, 1, 1, 1, 2, 666, 100, 0);
 
 
 
@@ -156,6 +163,8 @@ insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) 
 insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (5, '二层', '1332321440', '20171210202035', 1, 0);
 
 insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (5, '三层', '2142447677', '20181223202035', 5, 0);
+
+insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (6, '三层', '2142447233', '20181223202035', 6, 0);
 
 
 

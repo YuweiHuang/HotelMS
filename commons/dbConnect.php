@@ -2,7 +2,6 @@
 	/**
 	* connect to database
 	*/
-	namespace HotelMS\commons;
 
 	class dbConnect
 	{
@@ -10,7 +9,7 @@
 		private $username = 'root';
 		private $password = '';
 		private $basename = 'hotelms';
-		private $connect = null;
+		public  $connect = null;
 		
 		// public function __construct($host, $username, $password, $basename)
 		// {

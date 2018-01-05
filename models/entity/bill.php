@@ -2,7 +2,6 @@
 	/**
 	* bill
 	*/
-	namespace HotelMS\models\entity;
 	
 	class bill
 	{
