@@ -1,12 +1,10 @@
 <?php 
-	require 'user.php'
+	require_once __DIR__. '/user.php';
 	/**
 	* admin
 	*/
 	class admin extends user
 	{
-		private $admin_id = parent::$user_id;
-		
 		public function __get($key)
 	    {
 	        return $this->$key;
