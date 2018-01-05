@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__. '../../models/entity/customer.php';
+	require_once __DIR__. '/../../models/entity/customer.php';
 	$customerEntityTest = new customer();
 	$customerEntityTest->customer_id = 1;
 	$customerEntityTest->bill_id = 2;

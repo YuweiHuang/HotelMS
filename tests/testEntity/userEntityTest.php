@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__. '../../models/entity/user.php';
+	require_once __DIR__. '/../../models/entity/user.php';
 	$userEntityTest = new user();
 	$userEntityTest->user_id = 1;
 	$userEntityTest->authority = 0;

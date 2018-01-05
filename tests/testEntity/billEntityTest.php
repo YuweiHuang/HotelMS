@@ -18,5 +18,4 @@
 	'</br>评分: '.$billEntityTest->evaluate_score.
 	'</br>评语: '.$billEntityTest->evaluate_words.
 	'</br>是否删除： '.$billEntityTest->delmark;
-?>;
 ?>

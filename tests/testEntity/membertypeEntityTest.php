@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__. '../../models/entity/membertype.php';
+	require_once __DIR__. '/../../models/entity/membertype.php';
 	$membertypeEntityTest = new membertype();
 	$membertypeEntityTest->member_type_id = 1;
 	$membertypeEntityTest->member_type = '白金';

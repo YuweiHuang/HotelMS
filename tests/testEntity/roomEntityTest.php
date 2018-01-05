@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__. '../../models/entity/room.php';
+	require_once __DIR__. '/../../models/entity/room.php';
 	$roomEntityTest = new room();
 	$roomEntityTest->room_id = 1;
 	$roomEntityTest->room_type_id = 2;

@@ -1,5 +1,5 @@
 <?php 
-	require_once __DIR__. '../../models/entity/roomtype.php';
+	require_once __DIR__. '/../../models/entity/roomtype.php';
 	$roomtypeEntityTest = new roomtype();
 	$roomtypeEntityTest->room_type_id = 1;
 	$roomtypeEntityTest->room_type = '单人标准间';
