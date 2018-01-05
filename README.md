@@ -16,7 +16,7 @@ INSTALLATION
 
 Add my repository as master and git fetch to your local repository.
 
-If you fetch my data successfully, you will see our index page when you visit "localhost:8080" on your laptop.
+If you fetch my data successfully, you will see our index page when you visit "localhost\hotelms" on your laptop.
 
 DIRECTORY STRUCTURE
 -------------------
@@ -110,15 +110,19 @@ CORPORATION
 
 #### EntityTest(Xinyu) 在1.4完成
 
-- 订单bill
-- 会员user
-- 会员类型 membertype
-- 普通管理员admin
-- 房间room
-- 房型roomtype
-- 住客customer
+- <del>订单bill</del>
+- <del>会员user</del>
+- <del>会员类型 membertype</del>
+- <del>普通管理员admin</del>
+- <del>房间room</del>
+- <del>房型roomtype</del>
+- <del>住客customer</del>
 
-#### DAO(Yuwei) 在1.4号24:00前完成
+#### dbConnect(Yuwei)
+- <del>build</del>
+- <del>test</del>
+
+#### DAO(Yuwei) 在1.5号24:00前完成
 - billDAO 8
 - customerDAO 12
 - membertypeDAO 3
