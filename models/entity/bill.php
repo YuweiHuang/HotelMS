@@ -2,6 +2,8 @@
 	/**
 	* bill
 	*/
+	namespace HotelMS\models\entity;
+	
 	class bill
 	{
 		private $bill_id;/*订单id*/
