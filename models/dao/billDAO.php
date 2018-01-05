@@ -17,7 +17,7 @@
 
 			$sql = "SELECT * FROM bill WHERE bill_id='$billId'";
 			$result = null;
-			$result = mysqli_query($dbCon->$connect, $sql);
+			$result = mysqli_query($dbCon->connect, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
   			$bill->user_id = $row['user_id'];
