@@ -123,10 +123,14 @@ CORPORATION
 - <del>test</del>
 
 #### DAO(Yuwei) 在1.5号24:00前完成
+- <del>billDAO 8</del>
+- <del>customerDAO 12</del>
+- <del>membertypeDAO 3</del>
+
+#### DAOTest(Yuwei) 在1.6号24:00前完成
 - billDAO 8
 - customerDAO 12
 - membertypeDAO 3
-
 
 #### DAO(Xinyu) 在1.5号24:00前完成
 
