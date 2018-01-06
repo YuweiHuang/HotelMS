@@ -26,10 +26,12 @@
 
 		public function scanRoomType()
 		{
+			$roomtypeDao = new roomtypeDao();
+			
 
 		}
 
-		public function bookRoomType()
+		public function bookRoomType($roomtype)
 		{
 
 		}

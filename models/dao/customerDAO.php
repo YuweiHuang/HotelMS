@@ -34,7 +34,6 @@
   			$customer->indentity_type = $row['indentity_type'];
   			$customer->indentity = $row['indentity'];
   			$customer->in_time = $row['in_time'];
-  			$customer->days = $row['days'];
   			$customer->check_time = $row['check_time'];
   			$customer->user_id = $row['user_id'];
   			$customer->delmark = $row['delmark'];
@@ -64,7 +63,6 @@
 					indentity_type,
 					indentity,
 					in_time,
-					days,
 					check_time,
 					user_id,
 					delmark) VALUES ("
@@ -76,7 +74,6 @@
 					.$customer->indentity_type.","
 					.$customer->indentity.","
 					.$customer->in_time.","
-					.$customer->days.","
 					.$customer->check_time.","
 					.$customer->user_id.","
 					.$customer->delmark.");";
@@ -136,7 +133,6 @@
 					indentity_type = ".$customer->indentity_type.",
 					indentity = ".$customer->indentity.",
 					in_time = ".$customer->in_time.",
-					days = ".$customer->days.",
 					check_time = ".$customer->check_time.",
 					user_id = ".$customer->user_id.",
 					delmark = ".$customer->delmark."

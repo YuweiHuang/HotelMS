@@ -44,7 +44,7 @@
 		return: bill 对象 array(可能为空数组)
 			包括花费、总房间数量、积分、评语等
 		*/
-		public function findBillInfoByID($userid)
+		public function findAllBillInfoByUserID($userid)
 		{
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();
