@@ -27,6 +27,7 @@
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 			$room->room_id = $room_Id;
+			$room->room_name = $row['room_name'];
 			$room->room_type_id = $row['room_type_id'];
 			$room->location = $row['location'];
 			$room->room_tel = $row['room_tel'];
@@ -51,12 +52,14 @@
 			$con = $dbCon->connect;
 
 			$sql ="INSERT INTO roominfo (
+					room_name,
 					room_type_id,
 					location,
 					room_tel,
 					in_time,
 					days,
 					delmark) VALUES ("
+					.$room->room_name.","
 					.$room->room_type_id.","
 					.$room->location.","
 					.$room->room_tel.","
@@ -108,6 +111,7 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE roominfo SET
+			room_name=".$room->room_name.",
 			room_type_id=".$room->room_type_id.",
 			location=".$room->location.",
 			room_tel=".$room->room_tel.",

@@ -61,6 +61,7 @@ create table membertype
 create table roominfo
 (
    room_id              int(10) not null auto_increment,/*房间id*/
+   room_name            varchar(5) not null,/*房间号、房间名*/
    room_type_id         int(10) not null,/*房间类型id*/
    location             varchar(10) null,/*位置*/
    room_tel             varchar(11) null,/*房间电话*/
@@ -144,27 +145,27 @@ insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occ
 
 
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (1, '一层', '1332321440', '20171220202035', 2, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1101', 1, '一层', '1332321440', '20171220202035', 2, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (1, '三层', '2142447777', '20181220202035', 3, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('3101', 1, '三层', '2142447777', '20181220202035', 3, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (2, '一层', '1332321440', '20171210202035', 1, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1105', 2, '一层', '1332321440', '20171210202035', 1, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (2, '三层', '2142447677', '20181223202035', 5, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('3102', 2, '三层', '2142447677', '20181223202035', 5, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (3, '一层', '1332321440', '20171220202035', 2, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1104', 3, '一层', '1332321440', '20171220202035', 2, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (3, '三层', '2142447777', '20181220202035', 3, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('3103', 3, '三层', '2142447777', '20181220202035', 3, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (4, '一层', '1332321440', '20171210202035', 1, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1103', 4, '一层', '1332321440', '20171210202035', 1, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (4, '二层', '2142447677', '20181223202035', 5, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1102', 4, '二层', '2142447677', '20181223202035', 5, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (5, '二层', '1332321440', '20171210202035', 1, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('1101', 5, '二层', '1332321440', '20171210202035', 1, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (5, '三层', '2142447677', '20181223202035', 5, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('3104', 5, '三层', '2142447677', '20181223202035', 5, 0);
 
-insert into roominfo (room_type_id, location, room_tel, in_time, days, delmark) values (6, '三层', '2142447233', '20181223202035', 6, 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, in_time, days, delmark) values ('3105', 6, '三层', '2142447233', '20181223202035', 6, 0);
 
 
 

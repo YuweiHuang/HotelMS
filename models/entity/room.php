@@ -5,6 +5,7 @@
 	class room
 	{
 		private $room_id;/*房间id*/
+		private $room_name;/*房间号*/
 		private $room_type_id;/*房间类型id*/
 		private $location;/*位置*/
 		private $room_tel;/*房间电话*/
