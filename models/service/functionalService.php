@@ -13,4 +13,45 @@
 	require_once __DIR__.'/../dao/roomtypeDao.php';
 	require_once __DIR__.'/../dao/userDao.php';
 
+	/**
+	* services for functions
+	*/
+	class functionalService
+	{
+		
+		function __construct()
+		{
+
+		}
+
+		public function scanRoomType()
+		{
+
+		}
+
+		public function bookRoomType()
+		{
+
+		}
+
+		public function cancelBookRoomType()
+		{
+
+		}
+
+		public function customerConfirm()
+		{
+
+		}
+
+		public function scanBill()
+		{
+			
+		}
+
+		public function evaluateBill()
+		{
+
+		}
+	}
  ?>
