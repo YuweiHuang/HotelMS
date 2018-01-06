@@ -40,6 +40,45 @@
 		}
 
 		/*
+		input:用户id
+		return: bill 对象 array(可能为空数组)
+			包括花费、总房间数量、积分、评语等
+		*/
+		public function findBillInfoByID($userid)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM bill WHERE user_id=".$userid.";";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+			$all_bill = array();
+
+			if (mysqli_num_rows($result) > 0) 
+			{
+				while($row = mysqli_fetch_assoc($result))
+				{
+					$bill = new bill();
+					$bill->user_id = $row['user_id'];
+		  			$bill->totalroom = $row['totalroom'];
+		  			$bill->money = $row['money'];
+		  			$bill->book_time = $row['book_time'];
+		  			$bill->point = $row['point'];
+		  			$bill->evaluate_score = $row['evaluate_score'];
+		  			$bill->evaluate_words = $row['evaluate_words'];
+		  			$bill->delmark = $row['delmark'];
+
+		  			array_push($all_bill, $bill);
+				}
+			} 
+
+  			$dbCon->closeConnect();
+
+  			return $all_bill;
+		}
+
+		/*
 		input:bill 对象
 		return:是否添加成功
 		*/
