@@ -70,11 +70,14 @@
   			return $user;
 
 		}
+		/*
+		*查看所有用户信息
+		*返回array数组
+		*/
 
 
 
-
-		public function findUserInfoByID()
+		public function findUserInfo()
 		{
 			$user = new user();
 
@@ -85,7 +88,7 @@
 			$sql = "SELECT * FROM userinfo";
 			$result = null;
 			$result = mysqli_query($con, $sql);
-			$array =array();
+			$arrayall =array();
   			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
   			{
   				$user->user_id = $row['user_id'];
@@ -97,11 +100,11 @@
   				$user->point = $row['point'];
   				$user->member_type_id = $row['member_type_id'];
   				$user->delmark = $row['delmark'];
-  				array_push(array, $user);
+  				array_push($arrayall, $user);
 			}
   			$dbCon->closeConnect();
 
-  			return $array;
+  			return $arrayall;
 
 		}
 		/*
