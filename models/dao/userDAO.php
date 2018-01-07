@@ -5,7 +5,7 @@
 	require_once __DIR__.'/../entity/user.php';
 	require_once __DIR__.'/../../commons/dbConnect.php';
 
-	class ClassName extends AnotherClass
+	class userDao
 	{
 		
 		/*
@@ -21,10 +21,10 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM user WHERE user_id=".$user_id.";";
+			$sql = "SELECT * FROM userinfo WHERE user_id=".$user_id.";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
-  			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
   			$user->user_id = $row['user_id'];
   			$user->authority = $row['authority'];
@@ -54,8 +54,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "INSERT INTO user(
-				 	user_id, 
+			$sql = "INSERT INTO userinfo(
 				 	authority,
 				 	register_time,
 				 	username,
@@ -67,6 +66,7 @@
 					delmark ) VALUES ("
 					.$user->authority.","
 					.$user->register_time.","
+					.$user->username.","
 					.$user->account.","
 					.$user->password.","
 					.$user->truename.","
@@ -95,7 +95,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE user SET delmark = 1 WHERE user_id = ".$user_id.";";
+			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = ".$user_id.";";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -119,7 +119,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql="UPDATE user SET
+			$sql="UPDATE userinfo SET
 					authority = ".$user->authority.",
 				 	register_time = ".$user->register_time.",
 				 	username = ".$user->username.",

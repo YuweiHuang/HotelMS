@@ -6,7 +6,7 @@
 	$roomDaoTest = new roomDao();
 	$room = new room();
 	$room = $roomDaoTest->findRoomInfoByID(1);
-
+	
 	echo $room->room_id
 	.'</br>'.$room->room_type_id
 	.'</br>'.$room->location
