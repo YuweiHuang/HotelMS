@@ -7,7 +7,6 @@
 	{
 		private $bill_id;/*订单id*/
 		private $user_id;/*预订人id*/
-		private $totalroom;/*总的房间数量*/
 		private $money;/*总花费*/
 		private $book_time;/*预订时间*/
 		private $point;/*积分*/

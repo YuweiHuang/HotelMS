@@ -12,7 +12,7 @@
 		input:room_id
 		return： room 对象
 		*/
-		public function  findRoomInfoByID($room_Id)
+		public function findRoomInfoByID($room_Id)
 		{
 			$room =new room();
 
@@ -32,7 +32,7 @@
 			$room->location = $row['location'];
 			$room->room_tel = $row['room_tel'];
 			$room->in_time = $row['in_time'];
-			$room->days = $row['days'];
+			$room->out_time = $row['out_time'];
 			$room->delmark = $row['delmark'];
 
 			$dbCon->closeConnect();
@@ -40,7 +40,12 @@
   			return $room;
 		}
 
-		public function findEmptyRoom()
+		/*
+		查看空房间信息
+		input:room_id
+		return：room 对象 list
+		*/
+		public function findEmptyRoom($start_time, $end_time)
 		{
 			$room =new room();
 
@@ -48,8 +53,9 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roominfo where room_id="
-					.$room_Id.";";
+			$sql = "SELECT * 
+					FROM roominfo 
+					WHERE delmark = 0 AND ".$room_Id.";";
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -84,14 +90,14 @@
 					location,
 					room_tel,
 					in_time,
-					days,
+					out_time,
 					delmark) VALUES ("
 					.$room->room_name.","
 					.$room->room_type_id.","
 					.$room->location.","
 					.$room->room_tel.","
 					.$room->in_time.","
-					.$room->days.","
+					.$room->out_time.","
 					.$room->delmark.");";
 			if (mysqli_query($con, $sql)) 
 			{

@@ -15,7 +15,6 @@ create table bill
 (
    bill_id              int(10) not null auto_increment,/*订单id*/
    user_id              int(10) not null,/*预订人id*/
-   totalroom            int not null comment 'total book rooms',/*总的房间数量*/
    money                float not null comment 'cost of this bill',/*总花费*/
    book_time            datetime not null comment '2018-01-01 01:01:01',/*预订时间*/
    point                int not null,/*积分*/
@@ -37,6 +36,7 @@ create table customer
    gender               smallint(1) not null comment '0:female,1:male',/*性别*/
    country              varchar(40) not null,/*国家/地区*/
    city                 varchar(40) not null,/*城市*/
+   phone                varchar(15) not null,/*手机号*/
    indentity_type       smallint(1) not null comment '0:二代身份证,1:护照',/*登记证件类型*/
    indentity            varchar(20) not null,/*证件号码*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
@@ -81,8 +81,6 @@ create table roominfo
    room_type_id         int(10) not null,/*房间类型id*/
    location             varchar(10) null,/*位置*/
    room_tel             varchar(11) null,/*房间电话*/
-   in_time              datetime not null,/*入住时间2018-01-01 01:01:01*/
-   out_time             datetime not null,/*离店时间2018-01-01 01:01:01*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
    primary key (room_id)
 )engine=InnoDB default charset = utf8;
@@ -104,6 +102,20 @@ create table roomtype
    deposit              float not null,/*押金*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
    primary key (room_type_id)
+)engine=InnoDB default charset = utf8;
+
+/*==============================================================*/
+/* Table: bookrecord                                            */
+/*==============================================================*/
+create table bookrecord
+(
+   book_record_id       int(10) not null auto_increment,/*预定id*/
+   room_id              int(10) not null,/*房间id*/
+   bill_id              int(10) not null,/*订单id*/
+   in_time              datetime not null,/*入住时间2018-01-01 01:01:01*/
+   out_time             datetime not null,/*离店时间2018-01-01 01:01:01*/
+   delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
+   primary key (book_record_id)
 )engine=InnoDB default charset = utf8;
 
 /*==============================================================*/

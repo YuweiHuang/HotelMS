@@ -26,7 +26,6 @@
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
   			$bill->user_id = $row['user_id'];
-  			$bill->totalroom = $row['totalroom'];
   			$bill->money = $row['money'];
   			$bill->book_time = $row['book_time'];
   			$bill->point = $row['point'];

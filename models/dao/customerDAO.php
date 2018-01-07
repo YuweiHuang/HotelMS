@@ -15,26 +15,27 @@
 		public function findCustomerInfoByID($customer_id)
 		{
 			$customer = new customer();
-
+			
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM customer WHERE customer_id=".$customer_id.";";
+			$sql    = "SELECT * FROM customer WHERE customer_id=".$customer_id.";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
-  			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$row    = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-  			$customer->customer_id = $row['customer_id'];
-  			$customer->user_id = $row['user_id'];
-  			$customer->name = $row['name'];
-  			$customer->age = $row['age'];
-  			$customer->gender = $row['gender'];
-  			$customer->country = $row['country'];
-  			$customer->city = $row['city'];
-  			$customer->indentity_type = $row['indentity_type'];
-  			$customer->indentity = $row['indentity'];
-  			$customer->delmark = $row['delmark'];
+			$customer->customer_id    = $row['customer_id'];
+			$customer->user_id        = $row['user_id'];
+			$customer->name           = $row['name'];
+			$customer->age            = $row['age'];
+			$customer->gender         = $row['gender'];
+			$customer->country        = $row['country'];
+			$customer->city           = $row['city'];
+			$customer->phone          = $row['phone'];
+			$customer->indentity_type = $row['indentity_type'];
+			$customer->indentity      = $row['indentity'];
+			$customer->delmark        = $row['delmark'];
 
   			$dbCon->closeConnect();
 
@@ -59,11 +60,9 @@
 					gender,
 					country,
 					city,
+					phone,
 					indentity_type,
 					indentity,
-					in_time,
-					check_time,
-					user_id,
 					delmark) VALUES ("
 					.$customer->user_id.","
 					.$customer->name.","
@@ -71,6 +70,7 @@
 					.$customer->gender.","
 					.$customer->country.","
 					.$customer->city.","
+					.$customer->phone.","
 					.$customer->indentity_type.","
 					.$customer->indentity.","
 					.$customer->delmark.");";
@@ -122,17 +122,16 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE customer SET 
-					bill_id = ".$customer->bill_id.",
-					room_id = ".$customer->room_id.",
-					name = ".$customer->name.",
-					age = ".$customer->age.",
-					gender = ".$customer->gender.",
-					indentity_type = ".$customer->indentity_type.",
-					indentity = ".$customer->indentity.",
-					in_time = ".$customer->in_time.",
-					check_time = ".$customer->check_time.",
-					user_id = ".$customer->user_id.",
-					delmark = ".$customer->delmark."
+					user_id           = ".$customer->user_id.",
+					name              = ".$customer->name.",
+					age               = ".$customer->age.",
+					gender            = ".$customer->gender.",
+					country           = ".$customer->country.",
+					city              = ".$customer->city.",
+					phone             = ".$customer->phone.",
+					indentity_type    = ".$customer->indentity_type.",
+					indentity         = ".$customer->indentity.",
+					delmark           = ".$customer->delmark."
 					WHERE customer_id = ".$customer->customer_id.";";
 
 			if (mysqli_query($con, $sql)) 
