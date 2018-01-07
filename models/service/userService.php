@@ -13,6 +13,7 @@
 	require_once __DIR__.'/../dao/roomtypeDao.php';
 	require_once __DIR__.'/../dao/userDao.php';
 
+
 	/**
 	* services for user
 	*/
@@ -102,7 +103,7 @@
 		public function scanAllUser()
 		{
 			$userDao = new userDao();
-			return $userDao->findUserInfoByID();
+			return $userDao->findUserInfo();
 		}
 
 
@@ -110,5 +111,6 @@
 
 
 	}
+
 
  ?>

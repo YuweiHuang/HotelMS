@@ -26,17 +26,14 @@
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   			$customer->customer_id = $row['customer_id'];
-  			$customer->bill_id = $row['bill_id'];
-  			$customer->room_id = $row['room_id'];
+  			$customer->user_id = $row['user_id'];
   			$customer->name = $row['name'];
   			$customer->age = $row['age'];
   			$customer->gender = $row['gender'];
+  			$customer->country = $row['country'];
+  			$customer->city = $row['city'];
   			$customer->indentity_type = $row['indentity_type'];
   			$customer->indentity = $row['indentity'];
-  			$customer->in_time = $row['in_time'];
-  			$customer->days = $row['days'];
-  			$customer->check_time = $row['check_time'];
-  			$customer->user_id = $row['user_id'];
   			$customer->delmark = $row['delmark'];
 
   			$dbCon->closeConnect();
@@ -56,29 +53,26 @@
 			$con = $dbCon->connect;
 
 			$sql = "INSERT INTO customer (
-					bill_id,
-					room_id,
+					user_id,
 					name,
 					age,
 					gender,
+					country,
+					city,
 					indentity_type,
 					indentity,
 					in_time,
-					days,
 					check_time,
 					user_id,
 					delmark) VALUES ("
-					.$customer->bill_id.","
-					.$customer->room_id.","
+					.$customer->user_id.","
 					.$customer->name.","
 					.$customer->age.","
 					.$customer->gender.","
+					.$customer->country.","
+					.$customer->city.","
 					.$customer->indentity_type.","
 					.$customer->indentity.","
-					.$customer->in_time.","
-					.$customer->days.","
-					.$customer->check_time.","
-					.$customer->user_id.","
 					.$customer->delmark.");";
 
 			if (mysqli_query($con, $sql)) 
@@ -136,7 +130,6 @@
 					indentity_type = ".$customer->indentity_type.",
 					indentity = ".$customer->indentity.",
 					in_time = ".$customer->in_time.",
-					days = ".$customer->days.",
 					check_time = ".$customer->check_time.",
 					user_id = ".$customer->user_id.",
 					delmark = ".$customer->delmark."

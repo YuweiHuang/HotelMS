@@ -40,6 +40,33 @@
   			return $room;
 		}
 
+		public function findEmptyRoom()
+		{
+			$room =new room();
+
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM roominfo where room_id="
+					.$room_Id.";";
+			$result = null;
+			$result = mysqli_query($con,$sql);
+			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+			$room->room_id = $room_Id;
+			$room->room_name = $row['room_name'];
+			$room->room_type_id = $row['room_type_id'];
+			$room->location = $row['location'];
+			$room->room_tel = $row['room_tel'];
+			$room->in_time = $row['in_time'];
+			$room->days = $row['days'];
+			$room->delmark = $row['delmark'];
+
+			$dbCon->closeConnect();
+  			
+  			return $room;
+		}
 		/*
 		添加房间信息
 		input:room 对象
