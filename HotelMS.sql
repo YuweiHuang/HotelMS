@@ -31,18 +31,32 @@ create table bill
 create table customer
 (
    customer_id          int(10) not null auto_increment,/*住客id*/
-   bill_id              int(10) not null,/*订单id*/
-   room_id              int(10) not null,/*入住房间id*/
+   user_id              int(10) not null comment '预订人',/*预订人id*/
    name                 varchar(30) not null,/*姓名*/
    age                  smallint(3) not null,/*年龄*/
    gender               smallint(1) not null comment '0:female,1:male',/*性别*/
+   country              varchar(40) not null,/*国家/地区*/
+   city                 varchar(40) not null,/*城市*/
    indentity_type       smallint(1) not null comment '0:二代身份证,1:护照',/*登记证件类型*/
    indentity            varchar(20) not null,/*证件号码*/
-   in_time              datetime not null comment '2018-01-01 01:01:01',/*入住时间*/
-   check_time           datetime null comment '2018-01-01 01:01:01',/*结算时间*/
-   user_id              int(10) not null comment '预订人',/*预订人id*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
    primary key (customer_id)
+)engine=InnoDB default charset = utf8;
+
+/*==============================================================*/
+/* Table: live                                              */
+/*==============================================================*/
+create table live
+(
+   live_id              int(10) not null auto_increment,/*入住登记id*/
+   bill_id              int(10) not null,/*订单id*/
+   room_id              int(10) not null,/*入住房间id*/
+   customer_id          int(10) not null,/*住客id*/
+   user_id              int(10) not null comment '预订人',/*预订人id*/
+   in_time              datetime not null comment '2018-01-01 01:01:01',/*入住时间*/
+   check_time           datetime null comment '2018-01-01 01:01:01',/*结算时间*/
+   delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
+   primary key (live_id)
 )engine=InnoDB default charset = utf8;
 
 /*==============================================================*/
@@ -114,20 +128,29 @@ create table userinfo
 /* set foreign keys                                              */
 /*==============================================================*/
 
-alter table bill add constraint FK_BILL_REFERENCE_USERINFO foreign key (user_id)
-      references userinfo (user_id) on delete restrict on update restrict;
+-- alter table bill add constraint FK_BILL_REFERENCE_USERINFO foreign key (user_id)
+--       references userinfo (user_id) on delete restrict on update restrict;
 
-alter table customer add constraint FK_CUSTOMER_REFERENCE_BILL foreign key (bill_id)
-      references bill (bill_id) on delete restrict on update restrict;
+-- alter table customer add constraint FK_CUSTOMER_REFERENCE_USERINFO foreign key (user_id)
+--       references userinfo (user_id) on delete restrict on update restrict;
 
-alter table customer add constraint FK_CUSTOMER_REFERENCE_ROOMINFO foreign key (room_id)
-      references roominfo (room_id) on delete restrict on update restrict;
+-- alter table live add constraint FK_LIVE_REFERENCE_BILL foreign key (bill_id)
+--       references bill (bill_id) on delete restrict on update restrict;
 
-alter table roominfo add constraint FK_ROOMINFO_REFERENCE_ROOMTYPE foreign key (room_type_id)
-      references roomtype (room_type_id) on delete restrict on update restrict;
+-- alter table live add constraint FK_LIVE_REFERENCE_ROOMINFO foreign key (room_id)
+--       references roominfo (room_id) on delete restrict on update restrict;
 
-alter table userinfo add constraint FK_USERINFO_REFERENCE_MEMBERTY foreign key (member_type_id)
-      references membertype (member_type_id) on delete restrict on update restrict;
+-- alter table live add constraint FK_LIVE_REFERENCE_CUSTOMER foreign key (customer_id)
+--       references customer (customer_id) on delete restrict on update restrict;
+
+-- alter table live add constraint FK_LIVE_REFERENCE_USERINFO foreign key (user_id)
+--       references userinfo (user_id) on delete restrict on update restrict;
+
+-- alter table roominfo add constraint FK_ROOMINFO_REFERENCE_ROOMTYPE foreign key (room_type_id)
+--       references roomtype (room_type_id) on delete restrict on update restrict;
+
+-- alter table userinfo add constraint FK_USERINFO_REFERENCE_MEMBERTY foreign key (member_type_id)
+--       references membertype (member_type_id) on delete restrict on update restrict;
 
 /*==============================================================*/
 /* insert test data                                              */
@@ -198,12 +221,25 @@ insert into bill (user_id, totalroom, money, book_time, point, evaluate_score, e
 insert into bill (user_id, totalroom, money, book_time, point, evaluate_score, evaluate_words, delmark) values (1, 1, 150, '2013-01-12 01:01:01', 18, 4, '黄焖排骨饭好吃', 0);
 
 
-insert into customer (bill_id, room_id, name, age, gender, indentity_type, indentity, in_time, check_time, user_id, delmark) values (1, 1, '张同学', 18, 0, 0, '33523564', '2017-01-12 01:01:01', 2, '2017-01-15 01:01:01', 1, 0);
 
-insert into customer (bill_id, room_id, name, age, gender, indentity_type, indentity, in_time, check_time, user_id, delmark) values (1, 2, '李凯文', 20, 0, 0, '234353535', '2017-11-12 01:01:01', 2, '2017-11-14 01:01:01', 1, 0);
+insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (1, '张同学', 18, 0, '中国', '北京', 0, '33523564', 0);
 
-insert into customer (bill_id, room_id, name, age, gender, indentity_type, indentity, in_time, check_time, user_id, delmark) values (2, 3, '黄小文', 30, 1, 0, '789798798', '2017-10-12 01:01:01', 4, '2017-10-16 01:01:01', 2, 0);
+insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (2, '李凯文', 20, 0, '中国', '北京', 0, '234353535', 0);
 
-insert into customer (bill_id, room_id, name, age, gender, indentity_type, indentity, in_time, check_time, user_id, delmark) values (1, 2, '赵大文', 40, 1, 0, '698896986', '2017-11-12 01:01:01', 2, '2017-11-13 01:01:01', 2, 0);
+insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (3, '黄小文', 30, 1, '中国', '北京', 0, '789798798', 0);
 
-insert into customer (bill_id, room_id, name, age, gender, indentity_type, indentity, in_time, check_time, user_id, delmark) values (2, 3, '周文', 47, 0, 1, 'LEL6O28RDN', '2017-01-11 01:01:01', 3, '2017-01-12 01:01:01', 2, 0);
+insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (2, '赵大文', 40, 1, '中国', '北京', 0, '698896986', 0);
+
+insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (3, '周文', 47, 0, '美国', '纽约', 1, 'LEL6O28RDN', 0);
+
+
+
+-- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (1, 2, 1, '张同学', 18, 0, '中国', '北京', 0, '33523564', 0);
+
+-- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 1, '李凯文', 20, 0, '中国', '北京', 0, '234353535', 0);
+
+-- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 1, '黄小文', 30, 1, '中国', '北京', 0, '789798798', 0);
+
+-- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 1, '赵大文', 40, 1, '中国', '北京', 0, '698896986', 0);
+
+-- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 1, '周文文', 47, 0, '美国', '纽约', 1, 'LEL6O28RDN', 0);
