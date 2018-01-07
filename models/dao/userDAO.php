@@ -42,7 +42,68 @@
 
 		}
 
+		public function findUserInfoByAccount($account)
+		{
+			$user = new user();
 
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM userinfo WHERE account=".$account.";";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+  			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+  			$user->user_id = $row['user_id'];
+  			$user->authority = $row['authority'];
+  			$user->register_time = $row['register_time'];
+  			$user->account = $row['account'];
+  			$user->password = $row['password'];
+  			$user->truename = $row['truename'];
+  			$user->point = $row['point'];
+  			$user->member_type_id = $row['member_type_id'];
+  			$user->delmark = $row['delmark'];
+
+  			$dbCon->closeConnect();
+
+  			return $user;
+
+		}
+
+
+
+
+		public function findUserInfoByID()
+		{
+			$user = new user();
+
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM userinfo";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+			$array =array();
+  			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+  			{
+  				$user->user_id = $row['user_id'];
+  				$user->authority = $row['authority'];
+  				$user->register_time = $row['register_time'];
+  				$user->account = $row['account'];
+  				$user->password = $row['password'];
+  				$user->truename = $row['truename'];
+  				$user->point = $row['point'];
+  				$user->member_type_id = $row['member_type_id'];
+  				$user->delmark = $row['delmark'];
+  				array_push(array, $user);
+			}
+  			$dbCon->closeConnect();
+
+  			return $array;
+
+		}
 		/*
 		添加用户
 		input:user 对象
