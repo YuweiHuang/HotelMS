@@ -34,7 +34,7 @@
 	$adduser->user_password = 'zxy';
 	$adduser->total_point = 0;
 	$adduser->member_type_id = 1;
-	$userDaoTest->addUser($adduser);
+	//$userDaoTest->addUser($adduser);
 
 /////////////////////////////////////////
 	//更改用户信息   可以更改authority,username,user_password,truename,total_point,member_type_id
@@ -42,5 +42,5 @@
 	$userDaoTest->updateUser($userid);
 
 //////////////////////////
-	$userDaoTest->deleteUser(1);   //删除测试
+	//$userDaoTest->deleteUser(1);   //删除测试
  ?>

@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql    = "SELECT * FROM customer WHERE customer_id="'$customer_id'";";
+			$sql    = "SELECT * FROM customer WHERE customer_id='$customer_id';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$row    = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -63,17 +63,17 @@
 					phone,
 					indentity_type,
 					indentity,
-					delmark) VALUES ("
-					'$customer->user_id'","
-					'$customer->customer_name'","
-					'$customer->age'","
-					'$customer->gender'","
-					'$customer->country'","
-					'$customer->city'","
-					'$customer->phone'","
-					'$customer->indentity_type'","
-					'$customer->indentity'","
-					'$customer->delmark'");";
+					delmark) VALUES (
+					'$customer->user_id',
+					'$customer->customer_name',
+					'$customer->age',
+					'$customer->gender',
+					'$customer->country',
+					'$customer->city',
+					'$customer->phone',
+					'$customer->indentity_type',
+					'$customer->indentity',
+					'$customer->delmark');";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -97,7 +97,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE customer SET delmark = 1 WHERE customer_id = "'$customer_id'";";
+			$sql = "UPDATE customer SET delmark = 1 WHERE customer_id = '$customer_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -122,17 +122,17 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE customer SET 
-					user_id           = "'$customer->user_id'",
-					customer_name              = "'$customer->customer_name'",
-					age               = "'$customer->age'",
-					gender            = "'$customer->gender'",
-					country           = "'$customer->country'",
-					city              = "'$customer->city'",
-					phone             = "'$customer->phone'",
-					indentity_type    = "'$customer->indentity_type'",
-					indentity         = "'$customer->indentity'",
-					delmark           = "'$customer->delmark'"
-					WHERE customer_id = "'$customer->customer_id'";";
+					user_id           = '$customer->user_id',
+					customer_name              = '$customer->customer_name',
+					age               = '$customer->age',
+					gender            = '$customer->gender',
+					country           = '$customer->country',
+					city              = '$customer->city',
+					phone             = '$customer->phone',
+					indentity_type    = '$customer->indentity_type',
+					indentity         = '$customer->indentity',
+					delmark           = '$customer->delmark'
+					WHERE customer_id = '$customer->customer_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

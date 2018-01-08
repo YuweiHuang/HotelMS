@@ -86,7 +86,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo";
+			$sql = "SELECT * FROM userinfo;";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$arrayall =array();
@@ -132,7 +132,7 @@
 					'$user->user_account',
 					'$user->user_password',
 					'$user->total_point',
-					'$user->member_type_id')"; 
+					'$user->member_type_id');"; 
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;
@@ -185,7 +185,7 @@
 					truename = '$user->truename',
 					total_point = '$user->total_point',
 					member_type_id = '$user->member_type_id'
-					WHERE user_id = '$user->user_id'";
+					WHERE user_id = '$user->user_id';";
 
 
 			if (mysqli_query($con, $sql)) 

@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM membertype WHERE member_type_id="'$member_type_id'";";
+			$sql = "SELECT * FROM membertype WHERE member_type_id='$member_type_id';";
 
 			$result = null;
 			$result = mysqli_query($con, $sql);
@@ -49,10 +49,10 @@
 			$sql = "INSERT INTO membertype (
 					member_type, 
 					discount,  
-					delmark) VALUES ("
-					'$membertype->member_type'","
-					'$membertype->discount'","
-					'$membertype->delmark'");";
+					delmark) VALUES (
+					'$membertype->member_type',
+					'$membertype->discount',
+					'$membertype->delmark');";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -76,7 +76,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE membertype SET delmark = 1 WHERE member_type_id = "'$member_type_id'";";
+			$sql = "UPDATE membertype SET delmark = 1 WHERE member_type_id = '$member_type_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -101,9 +101,9 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE membertype SET 
-					member_type = "'$membertype->member_type'",
-					discount = "'$membertype->discount'",
-					WHERE member_type_id = "'$membertype->member_type_id'";";
+					member_type = '$membertype->member_type',
+					discount = '$membertype->discount',
+					WHERE member_type_id = '$membertype->member_type_id';";
 					
 			if (mysqli_query($con, $sql)) 
 			{

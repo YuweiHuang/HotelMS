@@ -7,6 +7,7 @@
 	require_once __DIR__.'/../entity/user.php';
 
 	require_once __DIR__.'/../dao/billDao.php';
+	require_once __DIR__.'/../dao/bookrecordDao.php';
 	require_once __DIR__.'/../dao/customerDao.php';
 	require_once __DIR__.'/../dao/membertypeDao.php';
 	require_once __DIR__.'/../dao/roomDao.php';
@@ -22,13 +23,14 @@
 		
 		/*
 		*用户注册	超管添加用户，管理员
+		*账号存在返回false 成功注册返回true
 		*/
 		public function userRegister($user)
 		{
-			$uerDao = new userDao();
+			$userDao = new userDao();
 			$userdb = new user();
 			$userdb = $userDao->findUserInfoByAccount($user->user_account);
-			if(empty($userdb->user_account))
+			if($userdb->user_id==null)
 			{
 				$userDao->addUser($user);
 				return true;
@@ -49,8 +51,8 @@
 		{
 			$userDao = new userDao();
 			$userdb = new user();
-			$userdb = findUserInfoByAccount($user_account);
-			if(empty($userdb->user_account))
+			$userdb = $userDao->findUserInfoByAccount($user->user_account);
+			if($userdb->user_id==null)
 			{
 				echo "error:the account does not exist";
 				return 0;
@@ -67,6 +69,7 @@
 			}
 			else
 			{
+				echo "success";
 				return 3;
 			}
 		}
@@ -85,15 +88,16 @@
 		{
 			$userDao = new userDao();
 			$userdb = new user();
-			$userdb = findUserInfoByID($user_id);
-			if(empty($userdb->user_id)||$userdb->delmark==1)
+			$userdb = $userDao->findUserInfoByID($user_id);
+			if($userdb->user_id==null||$userdb->delmark==1)
 			{
 				echo "user does not exist";
 				return false;
 			}
 			else 
 			{
-				deleteUser($user_id);
+				$userDao->deleteUser($user_id);
+				echo "success";
 				return true;
 			}
 		}
