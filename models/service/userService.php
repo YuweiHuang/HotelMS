@@ -89,7 +89,7 @@
 			$userDao = new userDao();
 			$userdb = new user();
 			$userdb = $userDao->findUserInfoByID($user_id);
-			if($userdb->user_id==null||$userdb->delmark==1)
+			if($userdb->user_id==null)
 			{
 				echo "user does not exist";
 				return false;
