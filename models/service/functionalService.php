@@ -77,7 +77,7 @@
 			$bookrecordDao = new bookrecordDao();
 			$liveDao       = new liveDao();
 
-			if ($billDao->deleteBill($bill_id) & $bookrecordDao->delBookRecord($bill_id) & $liveDao->deleteLive($bill_id)) {
+			if ($billDao->deleteBill($bill_id) & $bookrecordDao->deleteBookRecord($bill_id) & $liveDao->deleteLive($bill_id)) {
 				return true;
 			}
 			else
@@ -86,6 +86,21 @@
 			}
 		}
 
+		// 入住登记
+		// input: live object
+		// return: 是否登记成功
+		public function liveRecord($live)
+		{
+			$liveDao = new liveDao();
+			if($liveDao->addLive($live))
+			{
+				return true;
+			}
+			else
+			{
+				false;
+			}
+		}
 		/*
 		浏览用户的订单
 		input user_id
