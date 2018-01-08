@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roomtype WHERE room_type_id='$room_type_id';";
+			$sql = "SELECT * FROM roomtype WHERE delmark = 0 AND room_type_id=".$room_type_id.";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -42,7 +42,37 @@
   			return $roomtype;
 		}
 
+		public function findRoomtypeInfo()
+		{
+		
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
 
+			$sql = "SELECT * FROM roomtype WHERE delmark = 0;";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+			$arrayall =array();
+  			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+  			{
+  				$roomtype = new roomtype();
+  				$roomtype->room_type_id = $row['room_type_id'];
+  				$roomtype->room_type = $row['room_type'];
+  				$roomtype->bedwidth = $row['bedwidth'];
+  				$roomtype->roomarea = $row['roomarea'];
+  				$roomtype->wifi = $row['wifi'];
+  				$roomtype->bathroom =$row['bathroom'];
+  				$roomtype->addbed =$row['addbed'];
+  				$roomtype->occupantnum =$row['occupantnum'];
+  				$roomtype->price = $row['price'];
+  				$roomtype->deposit = $row['deposit'];
+  				$roomtype->delmark =$row['delmark'];
+  				array_push($arrayall, $roomtype);
+  			}
+  			$dbCon->closeConnect();
+
+  			return $arrayall;
+		}
 
 		/*
 		添加房间类型
@@ -95,7 +125,7 @@
 		return:是否成功
 	*/
 
-	public function deleteCustomer($room_type__id)
+	public function deleteRoomtype($room_type_id)
 		{
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();

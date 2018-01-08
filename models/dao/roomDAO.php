@@ -12,7 +12,7 @@
 		input:room_id
 		return： room 对象
 		*/
-		public function findRoomInfoByID($room_Id)
+		public function findRoomInfoByID($room_id)
 		{
 			$room =new room();
 
@@ -20,13 +20,13 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roominfo where room_id=
-					'$room_Id';";
+			$sql = "SELECT * FROM roominfo where delmark = 0 AND room_id=
+					'$room_id';";
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-			$room->room_id = $room_Id;
+			$room->room_id = $row['room_id'];
 			$room->room_name = $row['room_name'];
 			$room->room_type_id = $row['room_type_id'];
 			$room->location = $row['location'];
@@ -58,7 +58,7 @@
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-			$room->room_id = $room_Id;
+			$room->room_id = $row['room_id'];
 			$room->room_name = $row['room_name'];
 			$room->room_type_id = $row['room_type_id'];
 			$room->location = $row['location'];
@@ -68,6 +68,32 @@
 			$dbCon->closeConnect();
   			
   			return $room;
+		}
+		public function findRoomInfo()
+		{
+			
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM roominfo where delmark = 0;";
+			$result = null;
+			$result = mysqli_query($con,$sql);
+			$arrayall =array();
+			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)
+			{
+				$room =new room();
+				$room->room_id = $row['room_id'];
+				$room->room_name = $row['room_name'];
+				$room->room_type_id = $row['room_type_id'];
+				$room->location = $row['location'];
+				$room->room_tel = $row['room_tel'];
+				$room->delmark = $row['delmark'];
+				array_push($arrayall, $room);
+			}
+			$dbCon->closeConnect();
+  			
+  			return $arrayall;
 		}
 		/*
 		添加房间信息
@@ -84,13 +110,11 @@
 					room_name,
 					room_type_id,
 					location,
-					room_tel,
-					delmark) VALUES (
+					room_tel) VALUES (
 					'$room->room_name',
 					'$room->room_type_id',
 					'$room->location',
-					'$room->room_tel',
-					'$room->delmark');";
+					'$room->room_tel');";
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;
@@ -106,7 +130,7 @@
 		input:$room_id
 		return:是否成功
 		*/
-		public function delRoom($room_id)
+		public function deleteRoom($room_id)
 		{
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();
@@ -139,8 +163,7 @@
 			room_name='$room->room_name',
 			room_type_id='$room->room_type_id',
 			location='$room->location',
-			room_tel='$room->room_tel',
-			delmark='$room->delmark'
+			room_tel='$room->room_tel'
 			WHERE room_id = '$room->room_id';";
 
 			if (mysqli_query($con, $sql)) 
