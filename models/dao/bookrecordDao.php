@@ -157,7 +157,7 @@
 		input:$room_id
 		return:是否成功
 		*/
-		public function delBookRecord($bill_id)
+		public function deleteBookRecord($bill_id)
 		{
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();

@@ -21,6 +21,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
+
 			$sql = "SELECT * FROM userinfo WHERE delmark = 0 AND user_id=".$user_id.";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
@@ -54,7 +55,11 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
+<<<<<<< HEAD
 			$sql = "SELECT * FROM userinfo WHERE delmark = 0 AND user_account='".$user_account."';";
+=======
+			$sql = "SELECT * FROM userinfo WHERE user_account='$user_account';";
+>>>>>>> 2c42a164c1c58715624d013745e6e0ac27f59d96
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -154,7 +159,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = ".$user_id.";";
+			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = '$user_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

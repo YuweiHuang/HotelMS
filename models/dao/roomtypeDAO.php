@@ -131,7 +131,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = ".$room_type__id.";";
+			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = '$room_type__id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
