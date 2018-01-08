@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM live WHERE live_id=".$live_id.";";
+			$sql = "SELECT * FROM live WHERE live_id="'$live_id'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -51,24 +51,22 @@
 			$con = $dbCon->connect;
 
 			$sql = "INSERT INTO live (
+					bill_id,
+					room_id,
+					customer_id,
 					user_id,
-					name,
-					age,
-					gender,
-					country,
-					city,
-					indentity_type,
-					indentity,
+					in_time,
+					check_time,
 					delmark) VALUES ("
-					.$live->user_id.","
-					.$live->name.","
-					.$live->age.","
-					.$live->gender.","
-					.$live->country.","
-					.$live->city.","
-					.$live->indentity_type.","
-					.$live->indentity.","
-					.$live->delmark.");";
+					'$live->bill_id'","
+					'$live->room_id'","
+					'$live->customer_id'","
+					'$live->user_id'","
+					'$live->in_time'","
+					'$live->check_time'","
+					'$live->indentity_type'","
+					'$live->indentity'","
+					'$live->delmark'");";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -92,7 +90,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE live SET delmark = 1 WHERE live_id = ".$live_id.";";
+			$sql = "UPDATE live SET delmark = 1 WHERE live_id = "'$live_id'";";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -117,14 +115,14 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE live SET 
-					bill_id = ".$live->bill_id.",
-					room_id = ".$live->room_id.",
-					customer_id = ".$live->customer_id.",
-					user_id = ".$live->user_id.",
-					in_time = ".$live->in_time.",
-					check_time = ".$live->check_time.",
-					delmark = ".$live->delmark."
-					WHERE live_id = ".$live->live_id.";";
+					bill_id = "'$live->bill_id'",
+					room_id = "'$live->room_id'",
+					customer_id = "'$live->customer_id'",
+					user_id = "'$live->user_id'",
+					in_time = "'$live->in_time'",
+					check_time = "'$live->check_time'",
+					delmark = "'$live->delmark'"
+					WHERE live_id = "'$live->live_id'";";
 
 			if (mysqli_query($con, $sql)) 
 			{

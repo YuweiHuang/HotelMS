@@ -21,7 +21,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE user_id=".$user_id.";";
+			$sql = "SELECT * FROM userinfo WHERE user_id="'$user_id'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -29,10 +29,10 @@
   			$user->user_id = $row['user_id'];
   			$user->authority = $row['authority'];
   			$user->register_time = $row['register_time'];
-  			$user->account = $row['account'];
-  			$user->password = $row['password'];
+  			$user->user_account = $row['user_account'];
+  			$user->user_password = $row['user_password'];
   			$user->truename = $row['truename'];
-  			$user->point = $row['point'];
+  			$user->total_point = $row['total_point'];
   			$user->member_type_id = $row['member_type_id'];
   			$user->delmark = $row['delmark'];
 
@@ -42,7 +42,7 @@
 
 		}
 
-		public function findUserInfoByAccount($account)
+		public function findUserInfoByAccount($user_account)
 		{
 			$user = new user();
 
@@ -50,7 +50,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE account=".$account.";";
+			$sql = "SELECT * FROM userinfo WHERE accouser_accountunt="'$user_account'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -58,10 +58,10 @@
   			$user->user_id = $row['user_id'];
   			$user->authority = $row['authority'];
   			$user->register_time = $row['register_time'];
-  			$user->account = $row['account'];
-  			$user->password = $row['password'];
+  			$user->user_account = $row['user_account'];
+  			$user->user_password = $row['user_password'];
   			$user->truename = $row['truename'];
-  			$user->point = $row['point'];
+  			$user->total_point = $row['total_point'];
   			$user->member_type_id = $row['member_type_id'];
   			$user->delmark = $row['delmark'];
 
@@ -94,10 +94,10 @@
   				$user->user_id = $row['user_id'];
   				$user->authority = $row['authority'];
   				$user->register_time = $row['register_time'];
-  				$user->account = $row['account'];
-  				$user->password = $row['password'];
+  				$user->user_account = $row['user_account'];
+  				$user->user_password = $row['user_password'];
   				$user->truename = $row['truename'];
-  				$user->point = $row['point'];
+  				$user->total_point = $row['total_point'];
   				$user->member_type_id = $row['member_type_id'];
   				$user->delmark = $row['delmark'];
   				array_push($arrayall, $user);
@@ -122,21 +122,21 @@
 				 	authority,
 				 	register_time,
 				 	username,
-				 	account,
-					password,
+				 	user_account,
+					user_password,
 					truename,
-					point,
+					total_point,
 					member_type_id,
 					delmark ) VALUES ("
-					.$user->authority.","
-					.$user->register_time.","
-					.$user->username.","
-					.$user->account.","
-					.$user->password.","
-					.$user->truename.","
-					.$user->point.","
-					.$user->member_type_id.","
-					.$user->delmark.");";          
+					'$user->authority'","
+					'$user->register_time'","
+					'$user->username'","
+					'$user->user_account'","
+					'$user->user_password'","
+					'$user->truename'","
+					'$user->total_point'","
+					'$user->member_type_id'","
+					'$user->delmark'");";          
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -159,7 +159,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = ".$user_id.";";
+			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = "'$user_id'";";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -184,16 +184,16 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE userinfo SET
-					authority = ".$user->authority.",
-				 	register_time = ".$user->register_time.",
-				 	username = ".$user->username.",
-				 	account = ".$user->account.",
-					password = ".$user->password.",
-					truename = ".$user->truename.",
-					point = ".$user->point.",
-					member_type_id = ".$user->member_type_id.",
-					delmark = ".$user->delmark."
-					WHERE user_id = ".$user->user_id.";";
+					authority = "'$user->authority'",
+				 	register_time = "'$user->register_time'",
+				 	username = "'$user->username'",
+				 	user_account = "'$user->user_account'",
+					user_password = "'$user->user_password'",
+					truename = "'$user->truename'",
+					total_point = "'$user->total_point'",
+					member_type_id = "'$user->member_type_id'",
+					delmark = "'$user->delmark'"
+					WHERE user_id = "'$user->user_id'";";
 
 
 			if (mysqli_query($con, $sql)) 

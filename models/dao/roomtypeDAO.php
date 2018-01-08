@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roomtype WHERE room_type_id=".$room_type_id.";";
+			$sql = "SELECT * FROM roomtype WHERE room_type_id="'$room_type_id'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -69,17 +69,17 @@
 					price,
 					deposit,
 					delmark) VALUES ("
-					.$roomtype->room_type_id.","
-					.$roomtype->room_type.","
-					.$roomtype->bedwidth.","
-					.$roomtype->roomarea.","
-					.$roomtype->wifi.","
-					.$roomtype->bathroom.","
-					.$roomtype->addbed.","
-					.$roomtype->occupantnum.","
-					.$roomtype->price.","
-					.$roomtype->deposit.","
-					.$roomtype->delmark.");";
+					'$roomtype->room_type_id'","
+					'$roomtype->room_type'","
+					'$roomtype->bedwidth'","
+					'$roomtype->roomarea'","
+					'$roomtype->wifi'","
+					'$roomtype->bathroom'","
+					'$roomtype->addbed'","
+					'$roomtype->occupantnum'","
+					'$roomtype->price'","
+					'$roomtype->deposit'","
+					'$roomtype->delmark'");";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -105,7 +105,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = ".$room_type__id.";";
+			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = "'$room_type_id'";";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -129,17 +129,17 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE roomtype SET
-					room_type = ".$roomtype->room_type.",
-					bedwidth = ".$roomtype->bedwidth.",
-					roomarea = ".$roomtype->roomarea.",
-					wifi = ".$roomtype->wifi.",
-					bathroom = ".$roomtype->bathroom." ,
-					addbed = ".$roomtype->addbed.",
-					occupantnum = ".$roomtype->occupantnum.",
-					price = ".$roomtype->price.",
-					deposit = ".$roomtype->deposit.",
-					delmark = ".$roomtype->delmark."
-					WHERE room_type_id = ".$roomtype->room_type_id.";";
+					room_type = "'$roomtype->room_type'",
+					bedwidth = "'$roomtype->bedwidth'",
+					roomarea = "'$roomtype->roomarea'",
+					wifi = "'$roomtype->wifi'",
+					bathroom = "'$roomtype->bathroom'" ,
+					addbed = "'$roomtype->addbed'",
+					occupantnum = "'$roomtype->occupantnum'",
+					price = "'$roomtype->price'",
+					deposit = "'$roomtype->deposit'",
+					delmark = "'$roomtype->delmark'"
+					WHERE room_type_id = "'$roomtype->room_type_id'";";
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;

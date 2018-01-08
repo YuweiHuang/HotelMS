@@ -48,7 +48,8 @@
 			$bookrecordDao = $bookrecordDao->addBookRecord($bookrecord);
 		}
 
-		
+		取消预定房间
+		input: 
 		public function cancelBookRoomType()
 		{
 

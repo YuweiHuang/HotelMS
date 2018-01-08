@@ -6,7 +6,7 @@
 	{
 		private $customer_id;/*住客id*/
 		private $user_id;/*预订人id*/
-		private $name;/*姓名*/
+		private $customer_name;/*姓名*/
 		private $age;/*年龄*/
 		private $gender;/*性别*/
 		private $country;/*国家*/

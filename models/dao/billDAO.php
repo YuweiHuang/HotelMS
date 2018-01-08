@@ -20,15 +20,15 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM bill WHERE bill_id=".$billId.";";
+			$sql = "SELECT * FROM bill WHERE bill_id="'$billId'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
   			$bill->user_id = $row['user_id'];
-  			$bill->money = $row['money'];
+  			$bill->total_cost = $row['total_cost'];
   			$bill->book_time = $row['book_time'];
-  			$bill->point = $row['point'];
+  			$bill->total_point = $row['total_point'];
   			$bill->evaluate_score = $row['evaluate_score'];
   			$bill->evaluate_words = $row['evaluate_words'];
   			$bill->delmark = $row['delmark'];
@@ -49,7 +49,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM bill WHERE user_id=".$userid.";";
+			$sql = "SELECT * FROM bill WHERE user_id="'$userid'";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$all_bill = array();
@@ -61,9 +61,9 @@
 					$bill = new bill();
 					$bill->user_id = $row['user_id'];
 		  			$bill->totalroom = $row['totalroom'];
-		  			$bill->money = $row['money'];
+		  			$bill->total_cost = $row['total_cost'];
 		  			$bill->book_time = $row['book_time'];
-		  			$bill->point = $row['point'];
+		  			$bill->total_point = $row['total_point'];
 		  			$bill->evaluate_score = $row['evaluate_score'];
 		  			$bill->evaluate_words = $row['evaluate_words'];
 		  			$bill->delmark = $row['delmark'];
@@ -90,20 +90,20 @@
 			$sql = "INSERT INTO bill (
 					user_id, 
 					totalroom, 
-					money, 
+					total_cost, 
 					book_time, 
-					point, 
+					total_point, 
 					evaluate_score, 
 					evaluate_words, 
 					delmark) VALUES ("
-					.$bill->user_id.","
-					.$bill->totalroom.","
-					.$bill->money.","
-					.$bill->book_time.","
-					.$bill->point.","
-					.$bill->evaluate_score.","
-					.$bill->evaluate_words.","
-					.$bill->delmark.");";
+					'$bill->user_id'","
+					'$bill->totalroom'","
+					'$bill->total_cost'","
+					'$bill->book_time'","
+					'$bill->total_point'","
+					'$bill->evaluate_score'","
+					'$bill->evaluate_words'","
+					'$bill->delmark'");";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -129,20 +129,20 @@
 			$sql = "INSERT INTO bill (
 					user_id, 
 					totalroom, 
-					money, 
+					total_cost, 
 					book_time, 
-					point, 
+					total_point, 
 					evaluate_score, 
 					evaluate_words, 
 					delmark) VALUES ("
-					.$bill->user_id.","
-					.$bill->totalroom.","
-					.$bill->money.","
-					.$bill->book_time.","
-					.$bill->point.","
-					.$bill->evaluate_score.","
-					.$bill->evaluate_words.","
-					.$bill->delmark.");";
+					'$bill->user_id'","
+					'$bill->totalroom'","
+					'$bill->total_cost'","
+					'$bill->book_time'","
+					'$bill->total_point'","
+					'$bill->evaluate_score'","
+					'$bill->evaluate_words'","
+					'$bill->delmark'");";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -191,11 +191,11 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE bill SET 
-					totalroom = ".$bill->totalroom.",
-					money = ".$bill->money.",
-					evaluate_score = ".$bill->evaluate_score.",
-					evaluate_words = ".$bill->evaluate_words."
-					WHERE bill_id = ".$bill->bill_id.";";
+					totalroom = "'$bill->totalroom'",
+					total_cost = "'$bill->total_cost'",
+					evaluate_score = "'$bill->evaluate_score'",
+					evaluate_words = "'$bill->evaluate_words'"
+					WHERE bill_id = "'$bill->bill_id'";";
 
 			if (mysqli_query($con, $sql)) 
 			{
