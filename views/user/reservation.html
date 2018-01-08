@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>我的订单</title>
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="welcome.html">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"> 影子宾馆</span>
+          </a>
+        </div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+      <!-- 
+        选择住客信息
+        通过ajax调用数据库里的住客信息
+        未实现功能:点击表格每一栏的“选择”按钮，直接跳转到step2页面
+        目前我只写了一个超链接用于跳转
+        但实际上跳转的同时还要传入住客的信息
+        这一点如何保证呢？
+       -->
+
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="userProfile.html" style="font-family:Microsoft YaHei">会员个人信息</a></li>
+					<li><a href="roomList.html" style="font-family:Microsoft YaHei">房间信息查询</a></li>
+					<li><a href="reservation.html" style="font-family:Microsoft YaHei">房间预订</a></li>
+					<li><a href="myOrder.html" style="font-family:Microsoft YaHei">我的订单</a></li>
+					<li><a href="../php/userLogoff.php" style="font-family:Microsoft YaHei">注销</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+	</nav>
+
+	  <div class="container" style="font-family:Microsoft YaHei;">
+			<div class="table-responsive" style="padding: 50px 0px;">
+				<table class="table">
+					<caption><h2 align="center">步骤一:选择住客</h2></caption>
+					<thead>
+						<tr>
+							<th>住客姓名</th>
+							<th>所在国家</th>
+							<th>所在城市</th>
+							<th>联系方式</th>
+							<th>证件类型</th>
+							<th>证件号码</th>
+							<th>选择</th>
+						</tr>
+					</thead>
+          			<tbody id = "J_TbData">
+            
+          			</tbody>
+				</table>
+			</div>
+
+			<div style="padding: 20px 450px;">
+				<button class="btn btn-lg btn-primary btn-block" type="button" name="accom_submit" onclick="javascript:window.location.href='reservation_step1.html' ">我要使用新住客信息</button>
+			</div>
+
+<!-- 			<div class="container" style="padding: 0px 350px 0px 350px">
+				<div class="page-header" >
+					<h1 align="center" style="font-family:	Microsoft YaHei">取消订单</h1>
+				</div>
+			<form class="form-signin" role="form" action="" method="POST">
+			<div>
+
+				<div class = "form-group">
+				 <label for = "floor">房间号</label>
+				 <input type="text" class="form-control" name="deleteby_rid" placeholder="房间号" required >
+				 <span class="error"></span><br/>
+				</div>
+
+				</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_delete">取消订单</button>
+					</form>
+				</div> -->
+
+<!--         <script type="text/javascript">
+          $(document).ready(function(){
+        $.post('../php/customerselect.php',{
+
+        },
+            function(data) {
+
+            //第一种：动态创建表格的方式，使用拼接html的方式 （推荐）
+            var html = "";
+            for( var i = 0; i < data.length; i++ ) {
+
+                 html += "<tr>";
+                 html +=     "<td>" + data[i].name + "</td>";
+                 html +=     "<td>" + data[i].country + "</td>";
+                 html +=     "<td>" + data[i].city + "</td>";
+                 html +=     "<td>" + data[i].tel + "</td>";
+                 html +=     "<td>" + data[i].id_type + "</td>";
+                 html +=     "<td>" + data[i].id + "</td>";
+                 html +=     "<td>";
+                 html +=     "<button class='select' id=" + data[i].id + ">选择</button>";
+                 //html +=        "<a class='select' style='font-family:Microsoft YaHei' id=" + data[i].id + ">选择</a>";
+                 html +=     "</td>";
+                 html += "</tr>";
+
+             }
+             $("#J_TbData").html(html);
+        },'json'
+        );
+});
+
+       
+        </script>
+    }) -->
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../../assets/js/reservation.js"></script>
+  <script type="text/javascript" src="../../assets/js/customer_select.js"></script>
+</body>
+</html>

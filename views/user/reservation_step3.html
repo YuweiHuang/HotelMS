@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>房间预订</title>
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css" type="text/css">
+</head>
+
+<style>
+.error {color: #FF0000;}
+</style>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="welcome.html">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"> 影子宾馆</span>
+          </a>
+        </div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="userProfile.html" style="font-family:Microsoft YaHei">会员个人信息</a></li>
+          <li><a href="roomList.html" style="font-family:Microsoft YaHei">房间信息查询</a></li>
+          <li><a href="reservation.html" style="font-family:Microsoft YaHei">房间预订</a></li>
+          <li><a href="myOrder.html" style="font-family:Microsoft YaHei">我的订单</a></li>
+          <li><a href="../php/userLogoff.php" style="font-family:Microsoft YaHei">注销</a></li>
+        </ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+  <!-- 
+    若上个页面，用户选择使用新住客信息
+    则进入
+    步骤一:录入住客信息
+    form表的信息，通过php文件，添加入customer表
+    同时，form表的部分信息或者全部信息，存入session变量
+    用于之后bill表信息的添加
+   -->
+
+  <div class="container">
+     <div class="jumbotron">
+          <h1 style="font-family:Microsoft YaHei">房间预订</h1>
+      </div>
+
+     <form class="form-signin" role="form" action="" method="POST">
+      <div>
+        <div class="page-header" style="padding: 0px 200px;">
+          <h1 style="font-family:Microsoft YaHei;font-size:20px">步骤三：确认订单</h1>
+          <span class="error"></span>
+        </div>
+
+
+        <div style="padding: 0px 350px;">
+          <p style="font-family:Microsoft YaHei">住户姓名</p>
+          <input type="text" class="form-control" id="name" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">联系方式</p>
+          <input type="text" class="form-control" id="tel" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">身份证号</p>
+          <input type="text" class="form-control" id="id" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">入住房型</p>
+          <input type="text" class="form-control" id="roomtype" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">房间号</p>
+          <input type="text" class="form-control" id="roomnum" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">入住日期</p>
+          <input type="text" class="form-control" id="intime" value="" disabled="disabled"><br/>
+
+          <p style="font-family:Microsoft YaHei">离店日期</p>
+          <input type="text" class="form-control" id="checktime" value="" disabled="disabled"><br/><br/>
+
+          <div class="" role="group" aria-label="..." style="padding: 0px 20px;">
+              <button type="button" class="btn btn-lg btn-danger" id="cancle">信息有误，取消订单</button>
+              <button type="submit" class="btn btn-lg btn-primary confirm">信息无误，确认订单</button><br/><br/>
+          <!-- <button class="btn btn-lg btn-primary btn-block" type="submit" name="accom_submit">确认订单</button>
+          <button class="btn btn-lg btn-danger btn-block" type="button" name="cancle">取消订单</button> -->
+          </div>
+
+        </div>
+
+
+        </div>
+
+        </form>
+      </div>
+
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../assets/js/confirmOrder.js"></script>
+  <script type="text/javascript" src="../../assets/js/cancle.js"></script>
+  <script>
+   $(function () { $('#myModal').modal('hide')});
+</script>
+</body>
+</html>
