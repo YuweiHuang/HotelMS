@@ -7,6 +7,7 @@
 	require_once __DIR__.'/../entity/user.php';
 
 	require_once __DIR__.'/../dao/billDao.php';
+	require_once __DIR__.'/../dao/bookrecordDao.php';
 	require_once __DIR__.'/../dao/customerDao.php';
 	require_once __DIR__.'/../dao/membertypeDao.php';
 	require_once __DIR__.'/../dao/roomDao.php';
@@ -22,50 +23,54 @@
 		
 		/*
 		*用户注册	超管添加用户，管理员
+		*账号存在返回false 成功注册返回true
 		*/
 		public function userRegister($user)
 		{
-			$uerDao = new userDao();
+			$userDao = new userDao();
 			$userdb = new user();
-			$userdb = $userDao->findUserInfoByAccount($user->account);
-			if(empty($userdb->account))
+			$userdb = $userDao->findUserInfoByAccount($user->user_account);
+			if($userdb->user_id==null)
 			{
 				$userDao->addUser($user);
 				return true;
 			}
 			else 
 			{
-				echo "error:the account already exist";
+				echo "error:the useraccount already exist";
 				return false;
 			}
 		}
 
 		/*
 		*会员，管理员，超级管理员登陆   
+		*input：user实体
+		*return：账户不存在：0 密码错误：1 权限错误：2 登陆成功：3
 		*/
 		public function userLogin($user)
 		{
 			$userDao = new userDao();
 			$userdb = new user();
-			$userdb = findUserInfoByAccount($account);
-			if(empty($userdb->account))
+			$userdb = $userDao->findUserInfoByAccount($user->user_account);
+			if($userdb->user_id==null)
 			{
 				echo "error:the account does not exist";
-				return false;
+				return 0;
 			}
-			else if($userdb->password!=$user->password)
+			else if($userdb->user_password!=$user->user_password)
 			{
 				echo "Password error";
-				return false;
+				return 1;
 			}
 			else if($userdb->authority!=$user->authority)
 			{
 				echo "authority error";
-				return false;
+				return 2;
 			}
 			else
 			{
-				return true;
+				echo "success";
+				return 3;
 			}
 		}
 		/*
@@ -83,34 +88,28 @@
 		{
 			$userDao = new userDao();
 			$userdb = new user();
-			$userdb = findUserInfoByID($user_id);
-			if(empty($userdb->user_id)||$userdb->delmark==1)
+			$userdb = $userDao->findUserInfoByID($user_id);
+			if($userdb->user_id==null||$userdb->delmark==1)
 			{
 				echo "user does not exist";
 				return false;
 			}
 			else 
 			{
-				$userdb->delmark=1;
-				$userDao->updateUser($userdb);
-				retun true;
+				$userDao->deleteUser($user_id);
+				echo "success";
+				return true;
 			}
 		}
 
 		/*
 		*超管查看所有人员信息
+		*返回user对象的数组
 		*/
 		public function scanAllUser()
 		{
 			$userDao = new userDao();
 			return $userDao->findUserInfo();
 		}
-
-
-
-
-
 	}
-
-
  ?>

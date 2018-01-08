@@ -22,7 +22,7 @@
 
 			$sql = "SELECT * 
 					FROM bookrecord 
-					WHERE bill_id = "'$bill_id'" AND delmark = 0;";
+					WHERE bill_id = '$bill_id' AND delmark = 0;";
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -51,7 +51,7 @@
 
 			$sql = "SELECT * 
 					FROM bookrecord 
-					WHERE delmark = 0 AND room_id = "'$room_id'";";
+					WHERE delmark = 0 AND room_id = '$room_id';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$all_records = array();
@@ -97,9 +97,9 @@
 						FROM bookrecord 
 						WHERE delmark = 0 
 							AND (
-									(in_time BETWEEN "'$start_time'" AND "'$end_time'") 
+									(in_time BETWEEN '$start_time' AND '$end_time') 
 									OR 
-									(out_time BETWEEN "'$start_time'" AND "'$end_time'")
+									(out_time BETWEEN '$start_time' AND '$end_time')
 								)
 					) AND delmark = 0;";
 			$result = null;
@@ -135,12 +135,12 @@
 					bill_id,
 					in_time,
 					out_time,
-					delmark) VALUES ("
-					'$bookrecord->room_id'","
-					'$bookrecord->bill_id'","
-					'$bookrecord->in_time'","
-					'$bookrecord->out_time'","
-					'$bookrecord->delmark'");";
+					delmark) VALUES (
+					'$bookrecord->room_id',
+					'$bookrecord->bill_id',
+					'$bookrecord->in_time',
+					'$bookrecord->out_time',
+					'$bookrecord->delmark');";
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;
@@ -163,7 +163,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE bookrecord SET delmark = 1 WHERE bill_id = "'$bill_id'";";
+			$sql = "UPDATE bookrecord SET delmark = 1 WHERE bill_id = '$bill_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -188,14 +188,14 @@
 
 			$sql = "UPDATE bookrecord 
 					SET
-						room_id    = "'$bookrecord->room_id'",
-						bill_id = "'$bookrecord->bill_id'",
-						in_time     = "'$bookrecord->in_time'",
-						room_tel     = "'$bookrecord->room_tel'",
-						in_time      = "'$bookrecord->in_time'",
-						out_time         = "'$bookrecord->out_time'",
-						delmark      = "'$bookrecord->delmark'"
-					WHERE bill_id = "'$bookrecord->bill_id'";";
+						room_id    = '$bookrecord->room_id',
+						bill_id = '$bookrecord->bill_id',
+						in_time     = '$bookrecord->in_time',
+						room_tel     = '$bookrecord->room_tel',
+						in_time      = '$bookrecord->in_time',
+						out_time         = '$bookrecord->out_time',
+						delmark      = '$bookrecord->delmark'
+					WHERE bill_id = '$bookrecord->bill_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

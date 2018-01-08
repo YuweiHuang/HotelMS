@@ -21,7 +21,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE user_id="'$user_id'";";
+			$sql = "SELECT * FROM userinfo WHERE user_id=".$user_id.";";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -41,7 +41,11 @@
   			return $user;
 
 		}
-
+		/*
+		查看用户信息
+		input:用户account
+		return: user 对象
+		*/
 		public function findUserInfoByAccount($user_account)
 		{
 			$user = new user();
@@ -50,7 +54,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE accouser_accountunt="'$user_account'";";
+			$sql = "SELECT * FROM userinfo WHERE user_account='".$user_account."';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -74,23 +78,21 @@
 		*查看所有用户信息
 		*返回array数组
 		*/
-
-
-
 		public function findUserInfo()
 		{
-			$user = new user();
+			
 
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo";
+			$sql = "SELECT * FROM userinfo;";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$arrayall =array();
   			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
   			{
+  				$user = new user();
   				$user->user_id = $row['user_id'];
   				$user->authority = $row['authority'];
   				$user->register_time = $row['register_time'];
@@ -117,27 +119,20 @@
 			$dbCon = new dbConnect();
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
-
+			
 			$sql = "INSERT INTO userinfo(
 				 	authority,
 				 	register_time,
-				 	username,
 				 	user_account,
 					user_password,
-					truename,
 					total_point,
-					member_type_id,
-					delmark ) VALUES ("
-					'$user->authority'","
-					'$user->register_time'","
-					'$user->username'","
-					'$user->user_account'","
-					'$user->user_password'","
-					'$user->truename'","
-					'$user->total_point'","
-					'$user->member_type_id'","
-					'$user->delmark'");";          
-
+					member_type_id) VALUES (
+					'$user->authority',
+					'$user->register_time',
+					'$user->user_account',
+					'$user->user_password',
+					'$user->total_point',
+					'$user->member_type_id');"; 
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;
@@ -159,7 +154,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = "'$user_id'";";
+			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = ".$user_id.";";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -184,16 +179,13 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE userinfo SET
-					authority = "'$user->authority'",
-				 	register_time = "'$user->register_time'",
-				 	username = "'$user->username'",
-				 	user_account = "'$user->user_account'",
-					user_password = "'$user->user_password'",
-					truename = "'$user->truename'",
-					total_point = "'$user->total_point'",
-					member_type_id = "'$user->member_type_id'",
-					delmark = "'$user->delmark'"
-					WHERE user_id = "'$user->user_id'";";
+					authority ='$user->authority',
+				 	username = '$user->username',
+					user_password = '$user->user_password',
+					truename = '$user->truename',
+					total_point = '$user->total_point',
+					member_type_id = '$user->member_type_id'
+					WHERE user_id = '$user->user_id';";
 
 
 			if (mysqli_query($con, $sql)) 

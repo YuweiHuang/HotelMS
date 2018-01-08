@@ -20,8 +20,8 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roominfo where room_id="
-					'$room_Id'";";
+			$sql = "SELECT * FROM roominfo where room_id=
+					'$room_Id';";
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -53,7 +53,7 @@
 
 			$sql = "SELECT * 
 					FROM roominfo 
-					WHERE delmark = 0 AND "'$room_Id'";";
+					WHERE delmark = 0 AND '$room_Id';";
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -85,12 +85,12 @@
 					room_type_id,
 					location,
 					room_tel,
-					delmark) VALUES ("
-					'$room->room_name'","
-					'$room->room_type_id'","
-					'$room->location'","
-					'$room->room_tel'","
-					'$room->delmark'");";
+					delmark) VALUES (
+					'$room->room_name',
+					'$room->room_type_id',
+					'$room->location',
+					'$room->room_tel',
+					'$room->delmark');";
 			if (mysqli_query($con, $sql)) 
 			{
 				return true;
@@ -112,7 +112,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE roominfo SET delmark = 1 WHERE room_id = "'$room_id'";";
+			$sql = "UPDATE roominfo SET delmark = 1 WHERE room_id = '$room_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -136,12 +136,12 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE roominfo SET
-			room_name="'$room->room_name'",
-			room_type_id="'$room->room_type_id'",
-			location="'$room->location'",
-			room_tel="'$room->room_tel'",
-			delmark="'$room->delmark'"
-			WHERE room_id = "'$room->room_id'";";
+			room_name='$room->room_name',
+			room_type_id='$room->room_type_id',
+			location='$room->location',
+			room_tel='$room->room_tel',
+			delmark='$room->delmark'
+			WHERE room_id = '$room->room_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

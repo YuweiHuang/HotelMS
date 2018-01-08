@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM bill WHERE bill_id="'$billId'";";
+			$sql = "SELECT * FROM bill WHERE bill_id='$billId';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -49,7 +49,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM bill WHERE user_id="'$userid'";";
+			$sql = "SELECT * FROM bill WHERE user_id='$userid';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$all_bill = array();
@@ -95,15 +95,15 @@
 					total_point, 
 					evaluate_score, 
 					evaluate_words, 
-					delmark) VALUES ("
-					'$bill->user_id'","
-					'$bill->totalroom'","
-					'$bill->total_cost'","
-					'$bill->book_time'","
-					'$bill->total_point'","
-					'$bill->evaluate_score'","
-					'$bill->evaluate_words'","
-					'$bill->delmark'");";
+					delmark) VALUES (
+					'$bill->user_id',
+					'$bill->totalroom',
+					'$bill->total_cost',
+					'$bill->book_time',
+					'$bill->total_point',
+					'$bill->evaluate_score',
+					'$bill->evaluate_words',
+					'$bill->delmark');";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -134,15 +134,15 @@
 					total_point, 
 					evaluate_score, 
 					evaluate_words, 
-					delmark) VALUES ("
-					'$bill->user_id'","
-					'$bill->totalroom'","
-					'$bill->total_cost'","
-					'$bill->book_time'","
-					'$bill->total_point'","
-					'$bill->evaluate_score'","
-					'$bill->evaluate_words'","
-					'$bill->delmark'");";
+					delmark) VALUES (
+					'$bill->user_id',
+					'$bill->totalroom',
+					'$bill->total_cost',
+					'$bill->book_time',
+					'$bill->total_point',
+					'$bill->evaluate_score',
+					'$bill->evaluate_words',
+					'$bill->delmark');";
 
 			if (mysqli_query($con, $sql)) 
 			{
@@ -191,11 +191,11 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE bill SET 
-					totalroom = "'$bill->totalroom'",
-					total_cost = "'$bill->total_cost'",
-					evaluate_score = "'$bill->evaluate_score'",
-					evaluate_words = "'$bill->evaluate_words'"
-					WHERE bill_id = "'$bill->bill_id'";";
+					totalroom = '$bill->totalroom',
+					total_cost = '$bill->total_cost',
+					evaluate_score = '$bill->evaluate_score',
+					evaluate_words = '$bill->evaluate_words'
+					WHERE bill_id = '$bill->bill_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
