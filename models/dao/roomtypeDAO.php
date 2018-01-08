@@ -67,8 +67,7 @@
 					addbed,
 					occupantnum,
 					price,
-					deposit,
-					delmark) VALUES ("
+					deposit) VALUES ("
 					.$roomtype->room_type_id.","
 					.$roomtype->room_type.","
 					.$roomtype->bedwidth.","
@@ -78,8 +77,7 @@
 					.$roomtype->addbed.","
 					.$roomtype->occupantnum.","
 					.$roomtype->price.","
-					.$roomtype->deposit.","
-					.$roomtype->delmark.");";
+					.$roomtype->deposit.");";
 
 			if (mysqli_query($con, $sql)) 
 			{

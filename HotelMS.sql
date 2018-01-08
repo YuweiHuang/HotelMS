@@ -115,10 +115,10 @@ create table userinfo
    authority            smallint(1) not null comment '0:normal user,1:admin,2:super admin',/*权限*/
    register_time        datetime not null,/*注册时间2018-01-01 01:01:01*/
    username             varchar(30) null,/*用户名*/
-   account              varchar(30) not null,/*联系方式包括电话和邮箱，作为注册账号*/
-   password             varchar(40) not null,/*密码*/
+   aaccount              varchar(30) not null,/*联系方式包括电话和邮箱，作为注册账号*/
+   ppassword             varchar(40) not null,/*密码*/
    truename             varchar(30) null,/*真实姓名*/
-   point                int not null,/*评分*/
+   ppoint                int not null,/*评分*/
    member_type_id       int(10) not null,/*会员类型id*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
    primary key (user_id)
@@ -206,11 +206,11 @@ insert into membertype (member_type, discount, delmark) values ('钻石', 5, 0);
 
 
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', 20, 1, 0);
+insert into userinfo (authority, register_time, aaccount, ppassword, ppoint, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', 20, 1, 0);
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', 10, 2, 0);
+insert into userinfo (authority, register_time, aaccount, ppassword, ppoint, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', 10, 2, 0);
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', 50, 3, 0);
+insert into userinfo (authority, register_time, aaccount, ppassword, ppoint, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', 50, 3, 0);
 
 
 
