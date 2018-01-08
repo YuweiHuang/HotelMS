@@ -6,11 +6,12 @@
 	{
 		private $customer_id;/*住客id*/
 		private $user_id;/*预订人id*/
-		private $name;/*姓名*/
+		private $customer_name;/*姓名*/
 		private $age;/*年龄*/
 		private $gender;/*性别*/
 		private $country;/*国家*/
 		private $city;/*城市*/
+		private $phone;/*手机号码*/
 		private $indentity_type;/*登记证件类型*/
 		private $indentity;/*证件号码*/
 		private $delmark;/*是否删除*/
