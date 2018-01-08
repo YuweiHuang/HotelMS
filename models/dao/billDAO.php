@@ -146,7 +146,7 @@
 
 			if (mysqli_query($con, $sql)) 
 			{
-				return mysql_insert_id();
+				return mysqli_insert_id($con);
 			}
 			else
 			{

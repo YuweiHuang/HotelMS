@@ -38,26 +38,52 @@
 		input: 房间id start_time, end_time
 		return: 是否预定成功
 		*/
-		public function bookRoom($room_id, $start_time, $end_time)
+		public function bookRoom($user_id, $room_id, $start_time, $end_time)
 		{
-			$bill
-			$billDao->addBillAndGetID();
-			$bookrecord = new bookrecord($room_id, $start_time, $end_time);
-			$bookrecord
+			$roomDao = new roomDao();
+			$room = $roomDao->findRoomInfoByID($room_id);
+			$roomtypeDao = new roomtypeDao();
+			$roomtype = $roomtypeDao->findRoomtypeInfoByID($room->room_type_id)
+			date_default_timezone_set('Etc/GMT-8');     //这里设置了时区
+            $book_time = date("Y-m-d H:i:s");//获取当前时间
+			$bill = new bill($user_id, $roomtype->price, $book_time, $roomtype->price)
+			$bill_id = $billDao->addBillAndGetID($bill)
+			if($bill_id !== 0)
+			{
+				$bookrecord = new bookrecord($room_id, $bill_id, $start_time, $end_time);
+				$bookrecordDao = new bookrecordDao();
+				if($bookrecordDao->addBookRecord($bookrecord))
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+
+		// 取消预定房间
+		// input: bill_id
+		// return: 是否预定成功
+		public function cancelBookRoomType($bill_id)
+		{
+			$billDao       = new billDao();
 			$bookrecordDao = new bookrecordDao();
-			$bookrecordDao = $bookrecordDao->addBookRecord($bookrecord);
-		}
+			$liveDao       = new liveDao();
 
-		取消预定房间
-		input: 
-		public function cancelBookRoomType()
-		{
-
-		}
-
-		public function customerConfirm()
-		{
-
+			if ($billDao->deleteBill($bill_id) & $bookrecordDao->delBookRecord($bill_id) & $liveDao->deleteLive($bill_id)) {
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 		/*
