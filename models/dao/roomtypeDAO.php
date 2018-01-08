@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roomtype WHERE room_type_id=".$room_type_id.";";
+			$sql = "SELECT * FROM roomtype WHERE room_type_id='$room_type_id';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -101,7 +101,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = ".$room_type__id.";";
+			$sql = "UPDATE roomtype SET delmark = 1 WHERE room_type__id = '$room_type__id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

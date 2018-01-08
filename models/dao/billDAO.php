@@ -166,7 +166,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE bill SET delmark = 1 WHERE bill_id = ".$bill_id.";";
+			$sql = "UPDATE bill SET delmark = 1 WHERE bill_id = '$bill_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

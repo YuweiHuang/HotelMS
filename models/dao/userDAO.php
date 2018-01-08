@@ -21,7 +21,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE user_id=".$user_id.";";
+			$sql = "SELECT * FROM userinfo WHERE user_id='$user_id';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -54,7 +54,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE user_account='".$user_account."';";
+			$sql = "SELECT * FROM userinfo WHERE user_account='$user_account';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -154,7 +154,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = ".$user_id.";";
+			$sql = "UPDATE userinfo SET delmark = 1 WHERE user_id = '$user_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{
