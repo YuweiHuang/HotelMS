@@ -15,9 +15,9 @@ create table bill
 (
    bill_id              int(10) not null auto_increment,/*订单id*/
    user_id              int(10) not null,/*预订人id*/
-   money                float not null comment 'cost of this bill',/*总花费*/
+   total_cost           float not null comment 'cost of this bill',/*总花费*/
    book_time            datetime not null comment '2018-01-01 01:01:01',/*预订时间*/
-   point                int not null,/*积分*/
+   total_point          int not null,/*积分*/
    evaluate_score       int null,/*评分*/
    evaluate_words       longtext null,/*评语*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
@@ -31,7 +31,7 @@ create table customer
 (
    customer_id          int(10) not null auto_increment,/*住客id*/
    user_id              int(10) not null comment '预订人',/*预订人id*/
-   name                 varchar(30) not null,/*姓名*/
+   customer_name        varchar(30) not null,/*姓名*/
    age                  smallint(3) not null,/*年龄*/
    gender               smallint(1) not null comment '0:female,1:male',/*性别*/
    country              varchar(40) not null,/*国家/地区*/
@@ -127,10 +127,10 @@ create table userinfo
    authority            smallint(1) not null comment '0:normal user,1:admin,2:super admin',/*权限*/
    register_time        datetime not null,/*注册时间2018-01-01 01:01:01*/
    username             varchar(30) null,/*用户名*/
-   account              varchar(30) not null,/*联系方式包括电话和邮箱，作为注册账号*/
-   password             varchar(40) not null,/*密码*/
+   user_account         varchar(30) not null,/*联系方式包括电话和邮箱，作为注册账号*/
+   user_password        varchar(40) not null,/*密码*/
    truename             varchar(30) null,/*真实姓名*/
-   point                int not null,/*评分*/
+   total_point          int not null,/*评分*/
    member_type_id       int(10) not null,/*会员类型id*/
    delmark              smallint(1) default 0 comment '0:keep,1:delete',/*是否删除*/
    primary key (user_id)
@@ -182,27 +182,27 @@ insert into roomtype (room_type, bedwidth, roomarea, wifi, bathroom, addbed, occ
 
 
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1101', 1, '一层', '1332321440', '2017-01-01 01:01:01', '2017-01-04 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1101', 1, '一层', '1332321440', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('3101', 1, '三层', '2142447777', '2017-12-01 01:01:01', '2017-12-04 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('3101', 1, '三层', '2142447777', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1105', 2, '一层', '1332321440', '2017-12-10 01:01:01', '2017-12-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1105', 2, '一层', '1332321440', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('3102', 2, '三层', '2142447677', '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('3102', 2, '三层', '2142447677', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1104', 3, '一层', '1332321440', '2017-01-10 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1104', 3, '一层', '1332321440', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('3103', 3, '三层', '2142447777', '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('3103', 3, '三层', '2142447777', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1103', 4, '一层', '1332321440', '2017-01-10 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1103', 4, '一层', '1332321440', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1102', 4, '二层', '2142447677', '2017-01-10 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1102', 4, '二层', '2142447677', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('1101', 5, '二层', '1332321440', '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('1101', 5, '二层', '1332321440', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('3104', 5, '三层', '2142447677', '2017-01-10 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('3104', 5, '三层', '2142447677', 0);
 
-insert into roominfo (room_name, room_type_id, location, room_tel, in_time, out_time, delmark) values ('3105', 6, '三层', '2142447233', '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+insert into roominfo (room_name, room_type_id, location, room_tel, delmark) values ('3105', 6, '三层', '2142447233', 0);
 
 
 
@@ -218,31 +218,31 @@ insert into membertype (member_type, discount, delmark) values ('钻石', 5, 0);
 
 
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', 20, 1, 0);
+insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', 20, 1, 0);
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', 10, 2, 0);
+insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', 10, 2, 0);
 
-insert into userinfo (authority, register_time, account, password, point, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', 50, 3, 0);
-
-
-
-insert into bill (user_id, totalroom, money, book_time, point, evaluate_score, evaluate_words, delmark) values (1, 3, 100, '2017-01-12 01:01:01', 17, 6, '黄焖猪蹄饭好吃', 0);
-
-insert into bill (user_id, totalroom, money, book_time, point, evaluate_score, evaluate_words, delmark) values (1, 2, 200, '2017-11-12 01:01:01', 20, 7, '黄焖鸡米饭好吃', 0);
-
-insert into bill (user_id, totalroom, money, book_time, point, evaluate_score, evaluate_words, delmark) values (1, 1, 150, '2013-01-12 01:01:01', 18, 4, '黄焖排骨饭好吃', 0);
+insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', 50, 3, 0);
 
 
 
-insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (1, '张同学', 18, 0, '中国', '北京', 0, '33523564', 0);
+insert into bill (user_id, total_cost, book_time, total_point, evaluate_score, evaluate_words, delmark) values (1, 100, '2017-01-12 01:01:01', 17, 6, '黄焖猪蹄饭好吃', 0);
 
-insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (2, '李凯文', 20, 0, '中国', '北京', 0, '234353535', 0);
+insert into bill (user_id, total_cost, book_time, total_point, evaluate_score, evaluate_words, delmark) values (1, 200, '2017-11-12 01:01:01', 20, 7, '黄焖鸡米饭好吃', 0);
 
-insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (3, '黄小文', 30, 1, '中国', '北京', 0, '789798798', 0);
+insert into bill (user_id, total_cost, book_time, total_point, evaluate_score, evaluate_words, delmark) values (1, 150, '2013-01-12 01:01:01', 18, 4, '黄焖排骨饭好吃', 0);
 
-insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (2, '赵大文', 40, 1, '中国', '北京', 0, '698896986', 0);
 
-insert into customer (user_id, name, age, gender, country, city, indentity_type, indentity, delmark) values (3, '周文', 47, 0, '美国', '纽约', 1, 'LEL6O28RDN', 0);
+
+insert into customer (user_id, customer_name, age, gender, country, city, phone, indentity_type, indentity, delmark) values (1, '张同学', 18, 0, '中国', '北京', '+86-11111111111', 0, '33523564', 0);
+
+insert into customer (user_id, customer_name, age, gender, country, city, phone, indentity_type, indentity, delmark) values (2, '李凯文', 20, 0, '中国', '北京', '+86-11111111111', 0, '234353535', 0);
+
+insert into customer (user_id, customer_name, age, gender, country, city, phone, indentity_type, indentity, delmark) values (3, '黄小文', 30, 1, '中国', '北京', '+86-11111111111', 0, '789798798', 0);
+
+insert into customer (user_id, customer_name, age, gender, country, city, phone, indentity_type, indentity, delmark) values (2, '赵大文', 40, 1, '中国', '北京', '+86-11111111111', 0, '698896986', 0);
+
+insert into customer (user_id, customer_name, age, gender, country, city, phone, indentity_type, indentity, delmark) values (3, '周文', 47, 0, '美国', '纽约', '+86-11111111111', 1, 'LEL6O28RDN', 0);
 
 
 

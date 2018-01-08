@@ -117,6 +117,45 @@
 		}
 
 		/*
+		input:bill 对象
+		return:bill_id (0表示满意插入成功)
+		*/
+		public function addBillAndGetID($bill)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "INSERT INTO bill (
+					user_id, 
+					totalroom, 
+					money, 
+					book_time, 
+					point, 
+					evaluate_score, 
+					evaluate_words, 
+					delmark) VALUES ("
+					.$bill->user_id.","
+					.$bill->totalroom.","
+					.$bill->money.","
+					.$bill->book_time.","
+					.$bill->point.","
+					.$bill->evaluate_score.","
+					.$bill->evaluate_words.","
+					.$bill->delmark.");";
+
+			if (mysqli_query($con, $sql)) 
+			{
+				return mysql_insert_id();
+			}
+			else
+			{
+				echo "error:".$sql."</br>".mysqli_error($con);
+				return 0;
+			}
+		}
+
+		/*
 		用于删除订单
 		input:$bill_id
 		return:是否成功

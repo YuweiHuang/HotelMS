@@ -14,6 +14,15 @@
 		private $evaluate_words;/*评语*/
 		private $delmark;/*是否删除*/  
 
+		function __construct($user_id, $money, $book_time, $point)
+		{
+			$this->user_id = $user_id;
+			$this->money = $money;
+			$this->book_time = $book_time;
+			$this->point = $point;
+			$this->delmark = 0;
+		}
+
 		public function __get($key)
 	    {
 	        return $this->$key;
