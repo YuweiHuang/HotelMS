@@ -3,10 +3,10 @@
 
 
 <?php 
-	require_once __DIR__.'/../../models/entity/user.php';
+	require_once __DIR__.'/../../models/entity/customer.php';
 	require_once __DIR__.'/../../models/service/userService.php';
 
-	if (isset($_POST["submit_addu"])) 
+	if (isset($_POST["submit_addc"])) 
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
 		{

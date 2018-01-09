@@ -67,6 +67,23 @@
    <input type="text" class="form-control" name="set_cphone" placeholder="联系电话" required ><br/>
   </div>
 
+  <div class = "form-group">
+   <label for = "floor">性别</label>
+   <input type="text" class="form-control" name="set_gender" placeholder="性别" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">身份类型</label>
+   <input type="text" class="form-control" name="set_type" placeholder="联系电话" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">城市</label>
+   <input type="text" class="form-control" name="set_city" placeholder="城市" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">国家</label>
+   <input type="text" class="form-control" name="set_country" placeholder="国家" required ><br/>
+  </div>
+
   </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_addc">添加</button>
     </form>

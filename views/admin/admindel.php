@@ -64,6 +64,6 @@
 </div>
   <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="admindel.js"></script>
+  <script type="text/javascript" src="../../assets/js/admindel.js"></script>
 </body>
 </html>

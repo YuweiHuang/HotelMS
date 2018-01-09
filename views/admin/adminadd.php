@@ -45,25 +45,38 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:  Microsoft YaHei">添加管理员信息</h1>
   </div>
-<form class="form-signin" role="form" action="../php/adRegister.php" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addAdminAction.php" method="POST">
     <div>
-      <p style="font-family:Microsoft YaHei">管理员用户名</p>
-      <input type="text" class="form-control" name="adname" placeholder="管理员用户名" required ><br/>
-      <p style="font-family:Microsoft YaHei">管理员号码</p>
-      <input type="text" class="form-control" name="adaccount" placeholder="管理员号码" required >
-      <span class="error"> </span><br/>
-      <p style="font-family:Microsoft YaHei">管理员账号密码</p>
-      <input type="password" class="form-control" name="adpwd" placeholder="账号密码" required>
-      <span class="error"></span><br/>
-      <p style="font-family:Microsoft YaHei">确认密码</p>
-      <input type="password" class="form-control" name="radpwd" placeholder="确认密码" required><br/>
-    </div>
+      <div class = "form-group">
+   <label for = "floor">真实姓名</label>
+   <input type="text" class="form-control" name="adtruename" placeholder="真实姓名" required ><br/>
+  </div>
+
+  <div class = "form-group">
+   <label for = "floor">用户名</label>
+   <input type="text" class="form-control" name="adname" placeholder="用户名" required ><br/>
+  </div>
+
+  <div class = "form-group">
+   <label for = "floor">账号</label>
+   <input type="text" class="form-control" name="account" placeholder="账号" required ><br/>
+  </div>
+
+  <div class = "form-group">
+   <label for = "floor">密码</label>
+   <input type="text" class="form-control" name="radpwd" placeholder="密码" required ><br/>
+  </div>
+
+<div class = "form-group">
+   <label for = "floor">身份</label>
+   <input type="text" class="form-control" name="adauthority" placeholder="身份" required ><br/>
+  </div>
+  </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="adr_submit">添加</button>
     </form>
   </div>
 <br/>
 
-</div>
 <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 </body>

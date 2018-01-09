@@ -42,12 +42,12 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:	Microsoft YaHei">添加用户信息</h1>
   </div>
-<form class="form-signin" role="form" action="" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addUserAction.php" method="POST">
 <div>
 
   <div class = "form-group">
    <label for = "floor">真实姓名</label>
-   <input type="text" class="form-control" name="set_utruename" placeholder="I真实姓名" required ><br/>
+   <input type="text" class="form-control" name="set_utruename" placeholder="真实姓名" required ><br/>
   </div>
 
 	<div class = "form-group">
@@ -69,6 +69,7 @@
    <label for = "floor">身份</label>
    <input type="text" class="form-control" name="set_uauthority" placeholder="身份" required ><br/>
   </div>
+  
   </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_addu">添加</button>
     </form>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-        $.post('../php/adminlist.php',{
+        $.post('../../controlers/adminAction/adminlist.php',{
         },
             function(data) {
              //第一种：动态创建表格的方式，使用拼接html的方式 （推荐）
@@ -39,12 +39,8 @@ $(document).ready(function(){
                  html +=                     "<form role='form' action='' method='POST' name='"+data[i].user_id+"'>";//通过表单，POST evaluate,提交评论
                  html +=                        "<div class='modal-body'>";
                  html +=                            "<div class='form-group'>"; //textarea显示评论，用户可查看自己之前的评论或者更新评论
-                html +=                                "<label for='name'>注册时间</label>";
-                 html +=                                " <input type='text' class='form-control' id='"+register_time_id+"' size='5' value='"+data[i].register_time+"'>";
                  html +=                                "<label for='name'>用户名</label>";
                  html +=                                " <input type='text' class='form-control' id='"+username_id+"' size='5' value='"+data[i].username+"'>";
-                 html +=                                "<label for='name'>账号</label>";
-                 html +=                                " <input type='text' class='form-control' id='"+account_id+"' size='5' value='"+data[i].account+"'>";
                  html +=                                "<label for='name'>密码</label>";
                  html +=                                " <input type='text' class='form-control' id='"+password_id+"' size='5' value='"+data[i].password+"'>";
                  html +=                                "<label for='name'>真名</label>";
@@ -102,14 +98,10 @@ $(document).ready(function(){
                 
                 var getId = $(this).attr("id"); 
                 
-                var register_time_id="#register_time_"+getId;
-                var register_time=$(register_time_id).val();
 
                 var password_id="#password_"+getId;
                 var password=$(password_id).val();
 
-                var account_id="#account_"+getId;
-                var account=$(account_id).val();
 
                 var username_id="#username_"+getId;
                 var username=$(username_id).val();
@@ -125,10 +117,14 @@ $(document).ready(function(){
                 alert(password);
                 
 
-                $.post('../php/test.php',
+                $.post('../../controlers/adminAction/resetAdminAction.php',
                     {
-                        getId:getId
-                    
+                        getId:getId,
+                        password:password,
+                        username:username,
+                        truename:truename,
+                        point:point,
+                        member_type_id:member_type_id
                     },
                     function()
                     {
@@ -146,7 +142,7 @@ $(document).ready(function(){
                
                 var getId = $(this).attr("id"); 
                 alert(getId);
-                $.post('../php/test.php',
+                $.post('../../controlers/adminAction/deleteAdminAction.php',
                     {
                         getId:getId
                     },

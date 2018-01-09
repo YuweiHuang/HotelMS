@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-        $.post('../php/roomlist.php',{
+        $.post('../../controlers/adminAction/roomList.php',{
         },
             function(data) {
 
@@ -20,10 +20,11 @@ $(document).ready(function(){
                 var room_tel_id="room_tel_"+data[i].room_id;
                 var in_time_id="in_time_"+data[i].room_id;
                 var days_id="days_"+data[i].room_id;
-
+                var room_name_id="room_name_"+data[i].room_name;
            
                  html += "<tr>";
                  html +=     "<td>" + data[i].room_id + "</td>";
+                 html +=     "<td>" + data[i].room_name + "</td>";
                  html +=     "<td>" + data[i].room_type_id + "</td>";
                  html +=     "<td>" + data[i].location + "</td>";
                  html +=     "<td>" + data[i].room_tel + "</td>";
@@ -38,18 +39,14 @@ $(document).ready(function(){
                  html +=                     "<form role='form' action='' method='POST' name='"+data[i].room_id+"'>";//通过表单，POST evaluate,提交评论
                  html +=                        "<div class='modal-body'>";
                  html +=                            "<div class='form-group'>"; //textarea显示评论，用户可查看自己之前的评论或者更新评论
-                 html +=                                "<label for='name'>room_id</label>";
-                 html +=                                " <input type='text' class='form-control' id='"+room_id_id+"' size='5' value='"+data[i].room_id+"'>";
+                 html +=                                "<label for='name'>room_name</label>";
+                 html +=                                " <input type='text' class='form-control' id='"+room_name_id+"' size='5' value='"+data[i].room_name+"'>";
                   html +=                                "<label for='name'>room_type_id</label>";
                  html +=                                " <input type='text' class='form-control' id='"+room_type_id_id+"' size='5' value='"+data[i].room_type_id+"'>";
                   html +=                                "<label for='name'>location</label>";
                  html +=                                " <input type='text' class='form-control' id='"+location_id+"' size='5' value='"+data[i].location+"'>";
                   html +=                                "<label for='name'>room_tel</label>";
                  html +=                                " <input type='text' class='form-control' id='"+room_tel_id+"' size='5' value='"+data[i].room_tel+"'>";
-                  html +=                                "<label for='name'>in_time</label>";
-                 html +=                                " <input type='text' class='form-control' id='"+in_time_id+"' size='5' value='"+data[i].in_time+"'>";
-                html +=                                "<label for='name'>days</label>";
-                 html +=                                " <input type='text' class='form-control' id='"+days_id+"' size='5' value='"+data[i].days+"'>";
                  html +=                            "</div>";
                  html +=                        "</div>";
                  html +=                        "<div class='modal-footer'>";
@@ -114,16 +111,14 @@ $(document).ready(function(){
                 alert(days);
                 
 
-                $.post('../php/test.php',
+                $.post('../../controlers/adminAction/.php',
                     {
                         getId:getId,
                         room_id:room_id,
+                        room_name:room_name,
                         room_type_id:room_type_id,
                         location:location,
-                        room_tel:room_tel,
-                        in_time:in_time,
-                        days:days
-                    
+                        room_tel:room_tel
                     },
                     function()
                     {

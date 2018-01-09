@@ -83,7 +83,7 @@
 		/*
 		*删除房间
 		*/
-		public function deleteRoomType($room_id)
+		public function deleteRoom($room_id)
 		{
 			$roomDao = new roomDao();
 			$roomdb = new room();

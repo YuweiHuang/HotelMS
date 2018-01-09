@@ -1,20 +1,20 @@
 
-<!-- 添加用户信息 -->
+<!-- 添加管理员信息 -->
 
 
 <?php 
 	require_once __DIR__.'/../../models/entity/user.php';
 	require_once __DIR__.'/../../models/service/userService.php';
 
-	if (isset($_POST["submit_addu"])) 
+	if (isset($_POST["adr_submit"])) 
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
 		{
-			$set_utruename = test_input($_POST["set_utruename"]);
-			$set_uname = test_input($_POST["set_uname"]);
-			$set_uaccount = test_input($_POST["set_uaccount"]);
-			$set_upwd = test_input($_POST["set_upwd"]);
-			$set_uauthority = test_input($_POST["set_uauthority"]);
+			$set_utruename = test_input($_POST["adtruename"]);
+			$set_uname = test_input($_POST["adname"]);
+			$set_uaccount = test_input($_POST["account"]);
+			$set_upwd = test_input($_POST["radpwd"]);
+			$set_uauthority = test_input($_POST["adauthority"]);
 
 			$user = new user();
 			$userService = new userService();
@@ -33,7 +33,7 @@
 			$userService->userRegister($user);
 
 			echo "<script type='text/javascript'>
-      		alert('添加用户信息成功！');
+      		alert('添加管理员信息成功！');
       		self.location='../../views/admin/admin.php';
       		</script>";
 

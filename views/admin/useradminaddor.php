@@ -72,7 +72,7 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:	Microsoft YaHei">添加用户信息</h1>
   </div>
-<form class="form-signin" role="form" action="" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addUserAction.php" method="POST">
 <div>
 
   <div class = "form-group">

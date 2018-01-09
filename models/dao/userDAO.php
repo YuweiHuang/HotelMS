@@ -181,7 +181,6 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE userinfo SET
-					authority ='$user->authority',
 				 	username = '$user->username',
 					user_password = '$user->user_password',
 					truename = '$user->truename',

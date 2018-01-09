@@ -48,7 +48,7 @@
 
 			echo "<script type='text/javascript'>
       		alert('添加房间信息成功！');
-      		self.location='../html/admin.php';
+      		self.location='../../views/admin/admin.php';
       		</script>";
 
 		}
