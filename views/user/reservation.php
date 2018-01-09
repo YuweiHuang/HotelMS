@@ -21,7 +21,6 @@
 <?php
   require 'header.php';
 ?>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 
       <!-- 
         选择住客信息
@@ -54,7 +53,7 @@
 			</div>
 
 			<div style="padding: 20px 450px;">
-				<button class="btn btn-lg btn-primary btn-block" type="button" name="accom_submit" onclick="javascript:window.location.href='reservation_step1.html' ">我要使用新住客信息</button>
+				<button class="btn btn-lg btn-primary btn-block" type="button" name="accom_submit" onclick="javascript:window.location.href='reservation_step1.php' ">我要添加新住客信息</button>
 			</div>
 
 <!-- 			<div class="container" style="padding: 0px 350px 0px 350px">

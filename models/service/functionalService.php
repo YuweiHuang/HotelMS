@@ -1,5 +1,6 @@
 <?php 
 	require_once __DIR__.'/../entity/bill.php';
+	require_once __DIR__.'/../entity/live.php';
 	require_once __DIR__.'/../entity/customer.php';
 	require_once __DIR__.'/../entity/membertype.php';
 	require_once __DIR__.'/../entity/room.php';
@@ -8,6 +9,7 @@
 	require_once __DIR__.'/../entity/bookrecord.php';
 
 	require_once __DIR__.'/../dao/billDao.php';
+	require_once __DIR__.'/../dao/liveDao.php';
 	require_once __DIR__.'/../dao/customerDao.php';
 	require_once __DIR__.'/../dao/membertypeDao.php';
 	require_once __DIR__.'/../dao/roomDao.php';
@@ -66,7 +68,6 @@
 			{
 				return false;
 			}
-			
 		}
 
 		// 取消预定房间
@@ -111,8 +112,36 @@
 		{
 			// $billList = new array();
 			$billDao = new billDao();
+			$customerDao = new customerDao();
 			$billList = $billDao->findAllBillInfoByUserID($user_id);
-			return $billList;
+			$tempList = array();
+			for ($i=0; $i < count($billList); $i++) { 
+				$liveDao = new liveDao();
+				$live = $liveDao->findLiveInfoByBillID($billList[$i]->bill_id);
+				$customer = $customerDao->findCustomerInfoByID($live->customer_id);
+				$temp = array('bill_id' => $billList[$i]->bill_id,
+						  'total_cost' => $billList[$i]->total_cost,
+						  'book_time' => $billList[$i]->book_time,
+						  'total_point' => $billList[$i]->total_point,
+						  'evaluate_score' => $billList[$i]->evaluate_score,
+						  'evaluate_words' => $billList[$i]->evaluate_words,
+						  'customer_name' => $customer->customer_name,
+						  'in_time' => $live->in_time,
+						  'check_time' => $live->check_time,
+						  'phone' => $customer->phone);
+				// $temp = array('bill_id' => 2,
+				// 		  'total_cost' => 2200,
+				// 		  'book_time' => '29827',
+				// 		  'total_point' => 200,
+				// 		  'evaluate_score' => 5,
+				// 		  'evaluate_words' => '哈哈哈哈',
+				// 		  'customer_name' => '哈哈',
+				// 		  'in_time' => '29827',
+				// 		  'out_time' => '29827',
+				// 		  'phone' => '669869869');
+				array_push($tempList, $temp);
+			}
+			return $tempList;
 		}
 
 		/*

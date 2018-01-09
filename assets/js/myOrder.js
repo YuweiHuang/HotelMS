@@ -37,7 +37,7 @@ $(document).ready(function(){
                  html +=                        "<p>住客姓名: " + data[i].customer_name + "</p>";	//住客姓名（customer表数据）注：只显示预定的时候的第一位住客
                  html +=                        "<p>入住日期: " + data[i].in_time + "</p>";
                  html +=                        "<p>离店日期: " + data[i].check_time + "</p>";
-                 html +=                        "<p>联系方式: " + data[i].tel + "</p>";
+                 html +=                        "<p>联系方式: " + data[i].phone + "</p>";
                  html +=                    "</div>";
                  html +=                    "<div class='modal-footer'>";
                  html +=                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭</button>";

@@ -5,7 +5,7 @@ $(document).ready(function(){
         var type = $("#type").val();
         var status = $("#status").val();
  
-        $.post('../../php/roomlist.php',{
+        $.post('../../controlers/userAction/roomListAction.php',{
         	location:location,
         	type:type,
         	status:status

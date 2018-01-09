@@ -1,5 +1,5 @@
 $(document).ready( function() {
-        $.post('../php/customerselect.php',
+        $.post('../../controlers/userAction/customerSelect.php',
             function(data) 
             {
 

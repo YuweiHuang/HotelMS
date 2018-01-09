@@ -40,6 +40,38 @@
 		}
 
 		/*
+		查看住宿登记信息
+		input:登记id
+		return: live 对象
+		*/
+		public function findLiveInfoByBillID($bill_id)
+		{
+			$live = new live();
+
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM live WHERE bill_id='$bill_id';";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+  			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+  			$live->live_id = $row['live_id'];
+  			$live->bill_id = $row['bill_id'];
+  			$live->room_id = $row['room_id'];
+  			$live->customer_id = $row['customer_id'];
+  			$live->user_id = $row['user_id'];
+  			$live->in_time = $row['in_time'];
+  			$live->check_time = $row['check_time'];
+  			$live->delmark = $row['delmark'];
+
+  			$dbCon->closeConnect();
+
+  			return $live;
+		}
+
+		/*
 		添加登记
 		input:live 对象
 		return:是否添加成功

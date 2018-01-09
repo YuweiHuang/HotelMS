@@ -51,7 +51,7 @@
     <div class="page-header" style="padding: 0px 200px;">
       <h1 style="font-family:Microsoft YaHei;font-size:20px">修改个人信息</h1>
     </div>
-    <form class="form-signin" role="form" action="../php/userProfileUpdate.php" method="POST">
+    <form class="form-signin" role="form" action="../../controlers/userAction/userProfileUpdate.php" method="POST">
     <div style="padding: 0px 350px;">
       <p style="font-family:Microsoft YaHei">会员账号(登录用邮箱或手机号)</p>
       <input type="text" class="form-control" name="account_new" value="" placeholder="会员账号" required ><br/>

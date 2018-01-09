@@ -33,7 +33,7 @@
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="views/user/userLogin.php">宾馆会员登录</a></li>
-                  <li><a href="views/admin/adLogin.php">管理员登录</a></li>
+                  <li><a href="views/admin/adLogin.html">管理员登录</a></li>
                 </ul>
               </nav>
             </div>

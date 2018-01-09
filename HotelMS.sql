@@ -246,12 +246,12 @@ insert into customer (user_id, customer_name, age, gender, country, city, phone,
 
 
 
--- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (1, 2, 1, '张同学', 18, 0, '中国', '北京', 0, '33523564', 0);
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (1, 2, 1, 1, '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
 
--- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 1, '李凯文', 20, 0, '中国', '北京', 0, '234353535', 0);
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 1, 1, '2017-03-12 01:01:01', '2017-03-14 01:01:01', 0);
 
--- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 1, '黄小文', 30, 1, '中国', '北京', 0, '789798798', 0);
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 2, 1, '2017-05-12 01:01:01', '2017-05-14 01:01:01', 0);
 
--- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 1, '赵大文', 40, 1, '中国', '北京', 0, '698896986', 0);
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 2, 1, '2017-09-12 01:01:01', '2017-09-14 01:01:01', 0);
 
--- insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 1, '周文文', 47, 0, '美国', '纽约', 1, 'LEL6O28RDN', 0);
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 2, 2, '2017-02-12 01:01:01', '2017-02-14 01:01:01', 0);

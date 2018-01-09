@@ -32,7 +32,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
-         <?php require 'commonor.html'?>
+         <?php require 'commonor.html' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
