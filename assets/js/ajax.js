@@ -2,9 +2,7 @@
 	显示用户数据
 */
 $(document).ready(function(){
-	$.get(
-		"../php/userProfile.php",
-		{},
+	$.get("../../controlers/userAction/userProfile.php",
 		function(data)
 		{
 			$('#name').val(data['name']);

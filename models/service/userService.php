@@ -73,6 +73,19 @@
 				return 3;
 			}
 		}
+		
+		/*
+		显示用户账号信息
+		input:用户账号
+		return:user object
+		*/
+		public function scanSingleUser($user_account)
+		{
+			$userDao = new userDao();
+			$userdb = $userDao->findUserInfoByAccount($user_account);
+			return $userdb;
+		}
+
 		/*
 		*用户修改个人信息		管理员修改用户信息	超级管理员修改管理员，用户信息
 		*/

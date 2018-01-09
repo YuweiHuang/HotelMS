@@ -141,7 +141,7 @@ $(document).ready(function(){
                     },
                     function()
                     {
-                        window.location.href="myOrder.html";
+                        window.location.href="myOrder.php";
                     }
                 );
             });

@@ -80,7 +80,7 @@
 			$result = null;
 			$result = mysqli_query($con,$sql);
 			$arrayall =array();
-			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)
+			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
 			{
 				$room =new room();
 				$room->room_id = $row['room_id'];

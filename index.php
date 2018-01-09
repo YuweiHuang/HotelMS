@@ -32,8 +32,8 @@
               <h3 class="masthead-brand">影子宾馆</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><a href="views/user/userLogin.html">宾馆会员登录</a></li>
-                  <li><a href="views/admin/adLogin.html">管理员登录</a></li>
+                  <li><a href="views/user/userLogin.php">宾馆会员登录</a></li>
+                  <li><a href="views/admin/adLogin.php">管理员登录</a></li>
                 </ul>
               </nav>
             </div>
@@ -43,7 +43,7 @@
             <h1 class="cover-heading">欢迎来到影子宾馆</h1>
             <p class="lead">请在顶部导航栏选择您的登录端口，如果您是宾馆会员，请点击“宾馆会员登录”，如果您是宾馆管理员，请点击管理员登录</p>
             <p class="lead">
-              <a href="views/user/userRegister.html" class="btn btn-lg btn-default">注册会员账号</a>
+              <a href="views/user/userRegister.php" class="btn btn-lg btn-default">注册会员账号</a>
             </p>
           </div>
 
@@ -58,15 +58,6 @@
       </div>
 
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="./Cover Template for Bootstrap_files/jquery.min.js.下载"></script> -->
-    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./Cover Template for Bootstrap_files/bootstrap.min.js.下载"></script>-->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script src="./Cover Template for Bootstrap_files/ie10-viewport-bug-workaround.js.下载"></script> -->
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

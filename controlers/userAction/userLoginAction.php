@@ -12,37 +12,43 @@
 			$user_password = test_input($_POST["upwd"]);
 			$userService = new userService();
 			$user = new user();
-			$user->user_account = $user_account;
-			$user->user_password = $user_password;
-			$user->authority = 0;
+			// $user->user_account = $user_account;
+			// $user->user_password = $user_password;
+			// $user->authority = 0;
 
+			$user = $userService->scanSingleUser($user_account);
 			$loginStatus = $userService->userLogin($user);
 
 			if($loginStatus === 0)
 			{
 				echo "<script language='JavaScript'> 
 						alert('用户名不存在!'); 
-						self.location='../../views/user/userLogin.html';
+						self.location='../../views/user/userLogin.php';
 					  </script> ";
 			}
 			elseif($loginStatus === 1)
 			{
 				echo "<script language='JavaScript'> 
 						alert('密码错误'); 
-						self.location='../../views/user/userLogin.html';
+						self.location='../../views/user/userLogin.php';
 					  </script> ";
 			}
 			elseif($loginStatus === 2)
 			{
-				echo "<script language='JavaScript'> alert('权限错误!'); 
-				self.location='../../views/user/welcome.html'; </script> ";
+				echo "<script language='JavaScript'> 
+						alert('权限错误!'); 
+						self.location='../../views/user/userLogin.php'; 
+					  </script> ";
 			}
 			else
 			{
 				$_SESSION['user_account'] = $user_account;
 				$_SESSION['user_password'] = $user_password;
-				echo "<script language='JavaScript'> alert('登录成功!'); 
-				self.location='../../views/user/welcome.html'; </script> ";
+				$user->
+				echo "<script language='JavaScript'> 
+						alert('登录成功!'); 
+						self.location='../../views/user/welcome.php'; 
+					  </script> ";
 			}
 		}
 	}
