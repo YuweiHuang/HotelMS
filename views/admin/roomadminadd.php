@@ -65,14 +65,15 @@
   </div>
 
   <div class = "form-group">
-   <label for = "floor">房间价格</label>
-   <input type="text" class="form-control" name="set_rprice" placeholder="房间价格" required ><br/>
+   <label for = "floor">房间楼层</label>
+   <input type="text" class="form-control" name="set_location" placeholder="房间楼层" required ><br/>
+  </div>
+   <div class = "form-group">
+   <label for = "floor">房间电话</label>
+   <input type="text" class="form-control" name="set_tel" placeholder="房间电话" required ><br/>
   </div>
 
-<div class = "form-group">
-   <label for = "floor">预订价格</label>
-   <input type="text" class="form-control" name="order_rprice" placeholder="预订价格" required ><br/>
-  </div>
+
 
   </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_add">添加</button>

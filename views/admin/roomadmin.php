@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>房间管理</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  <meta charset="utf-8">
+  <title>房间管理</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 </head>
 
 <style>
@@ -44,28 +44,28 @@
         <p style="font-family:Microsoft YaHei">请在导航栏中选择您想使用的其他功能</p>
     </div>
 
-		<div class="table-responsive">
-			<table class="table">
-				<caption><h2 align="center">房间信息</h2></caption>
-				<thead>
-					<tr>
-						<th>房间号</th>
-						<th>房间类型</th>
-						<th>房间价格</th>
-						<th>房间状态</th>
-						<th>入住时间</th>
-						<th>退房时间</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
+    <div class="table-responsive">
+      <table class="table">
+        <caption><h2 align="center">房间信息</h2></caption>
+        <thead>
+          <tr>
+            <th>房间号</th>
+            <th>房间类型</th>
+            <th>房间价格</th>
+            <th>房间状态</th>
+            <th>入住时间</th>
+            <th>退房时间</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
 <br/>
 
 <div class="container" style="padding: 0px 300px 0px 300px">
   <div class="page-header" >
-    <h1 align="center" style="font-family:	Microsoft YaHei">添加房间信息</h1>
+    <h1 align="center" style="font-family:  Microsoft YaHei">添加房间信息</h1>
   </div>
 <form class="form-signin" role="form" action="" method="POST">
 <div>
@@ -87,10 +87,6 @@
    </select>
   </div>
 
-  <div class = "form-group">
-   <label for = "floor">房间价格</label>
-   <input type="text" class="form-control" name="set_rprice" placeholder="房间价格" required ><br/>
-  </div>
 
   <div class = "form-group">
    <label for = "status">房间状态</label>
@@ -100,7 +96,14 @@
     <option value="已入住">已入住</option>
    </select>
   </div>
-
+ <div class = "form-group">
+   <label for = "floor">房间楼层</label>
+   <input type="text" class="form-control" name="set_location" placeholder="房间楼层" required ><br/>
+  </div>
+   <div class = "form-group">
+   <label for = "floor">房间电话</label>
+   <input type="text" class="form-control" name="set_tel" placeholder="房间电话" required ><br/>
+  </div>
   </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_add">添加</button>
     </form>
