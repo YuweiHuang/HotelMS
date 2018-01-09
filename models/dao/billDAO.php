@@ -49,9 +49,10 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM bill WHERE user_id='$userid';";
+			$sql = "SELECT * FROM bill WHERE user_id = '$userid';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
+			
 			$all_bill = array();
 
 			if (mysqli_num_rows($result) > 0) 
@@ -59,21 +60,20 @@
 				while($row = mysqli_fetch_assoc($result))
 				{
 					$bill = new bill();
+					$bill->bill_id = $row['bill_id'];
 					$bill->user_id = $row['user_id'];
-		  			$bill->totalroom = $row['totalroom'];
 		  			$bill->total_cost = $row['total_cost'];
 		  			$bill->book_time = $row['book_time'];
 		  			$bill->total_point = $row['total_point'];
 		  			$bill->evaluate_score = $row['evaluate_score'];
 		  			$bill->evaluate_words = $row['evaluate_words'];
 		  			$bill->delmark = $row['delmark'];
-
 		  			array_push($all_bill, $bill);
 				}
 			} 
-
+			
   			$dbCon->closeConnect();
-
+  			// echo $all_bill;
   			return $all_bill;
 		}
 

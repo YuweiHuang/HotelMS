@@ -12,9 +12,6 @@
 			$user_password = test_input($_POST["upwd"]);
 			$userService = new userService();
 			$user = new user();
-			// $user->user_account = $user_account;
-			// $user->user_password = $user_password;
-			// $user->authority = 0;
 
 			$user = $userService->scanSingleUser($user_account);
 			$loginStatus = $userService->userLogin($user);
@@ -42,9 +39,16 @@
 			}
 			else
 			{
-				$_SESSION['user_account'] = $user_account;
-				$_SESSION['user_password'] = $user_password;
-				$user->
+				$_SESSION['user_id'] = $user->user_id;
+				$_SESSION['authority'] = $user->authority;
+				$_SESSION['register_time'] = $user->register_time;
+				$_SESSION['username'] = $user->username;
+				$_SESSION['user_account'] = $user->user_account;
+				$_SESSION['user_password'] = $user->user_password;
+				$_SESSION['truename'] = $user->truename;
+				$_SESSION['user_account'] = $user->user_account;
+				$_SESSION['total_point'] = $user->total_point;
+				$_SESSION['member_type_id'] = $user->member_type_id;
 				echo "<script language='JavaScript'> 
 						alert('登录成功!'); 
 						self.location='../../views/user/welcome.php'; 

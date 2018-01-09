@@ -15,14 +15,14 @@
 		private $evaluate_words;/*评语*/
 		private $delmark;/*是否删除*/  
 
-		function __construct($user_id, $total_cost, $book_time, $total_point)
-		{
-			$this->user_id = $user_id;
-			$this->total_cost = $total_cost;
-			$this->book_time = $book_time;
-			$this->total_point = $total_point;
-			$this->delmark = 0;
-		}
+		// function __construct($user_id, $total_cost, $book_time, $total_point)
+		// {
+		// 	$this->user_id = $user_id;
+		// 	$this->total_cost = $total_cost;
+		// 	$this->book_time = $book_time;
+		// 	$this->total_point = $total_point;
+		// 	$this->delmark = 0;
+		// }
 
 		public function __get($key)
 	    {

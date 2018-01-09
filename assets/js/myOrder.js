@@ -3,13 +3,10 @@
 */
 $(document).ready(function(){
 
-	$.post("../php/myOrder.php",{
-
-	},
- 	
- 	
+	$.post("../../controlers/userAction/getOrder.php",
 		function(data)
 		{
+            // alert(data[0].bill_id);
 			            //第一种：动态创建表格的方式，使用拼接html的方式 （推荐）
             var html = "";
             for( var i = 0; i < data.length; i++ ) {
@@ -27,9 +24,9 @@ $(document).ready(function(){
                 var point_id="point_"+data[i].bill_id;//评分input的id
 
                  html += "<tr>";
-                 html +=     "<td>" + data[i].room_type + "</td>";	//房间类型（roomtype表数据）
-                 html +=     "<td>" + data[i].price + "</td>";		//房间一日单价（roomtype表数据）
-                 html +=     "<td>" + data[i].money + "</td>";		//订单总价（bill表数据）
+                 html +=     "<td>" + data[i].bill_id + "</td>";	//房间类型（roomtype表数据）
+                 html +=     "<td>" + data[i].total_cost + "</td>";		//房间一日单价（roomtype表数据）
+                 html +=     "<td>" + data[i].book_time + "</td>";		//订单总价（bill表数据）
                  html +=     "<td>";
                  html +=     "<button class='btn btn-small btn-info detail' data-toggle='modal' data-target='" +target_detail+ "'>详情</button>";
                  html +=        "<div class='modal fade' id='" +id_detail+ "' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
@@ -59,9 +56,9 @@ $(document).ready(function(){
                  html +=                    	"<div class='modal-body'>";
                  html +=							"<div class='form-group'>"; //textarea显示评论，用户可查看自己之前的评论或者更新评论
                  html +=								"<label for='name'>用户评分</label>";
-                 html +=                                " <input type='number' class='form-control' id='"+point_id+"' size='16' value='"+data[i].point+"'>";
+                 html +=                                " <input type='number' class='form-control' id='"+point_id+"' size='16' value='"+data[i].evaluate_score+"'>";
                  html +=                                "<label for='name'>用户评价</label>";
-                 html +=								" <textarea class='form-control' rows='5' id='"+comment_id+"'>" + data[i].evaluate + "</textarea>";
+                 html +=								" <textarea class='form-control' rows='5' id='"+comment_id+"'>" + data[i].evaluate_words + "</textarea>";
                  html +=							"</div>";
                  html +=                    	"</div>";
                  html +=                   		"<div class='modal-footer'>";

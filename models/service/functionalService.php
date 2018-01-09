@@ -27,7 +27,7 @@
 		*/
 		public function scanEmptyRoom($start_time, $end_time)
 		{
-			$roomList = new array();
+			// $roomList = new array();
 			$bookRecordDao = new bookrecordDao();
 			$roomList = $bookRecordDao->findEmptyRoomList($start_time, $end_time);
 			return $roomList;
@@ -43,11 +43,12 @@
 			$roomDao = new roomDao();
 			$room = $roomDao->findRoomInfoByID($room_id);
 			$roomtypeDao = new roomtypeDao();
-			$roomtype = $roomtypeDao->findRoomtypeInfoByID($room->room_type_id)
-			date_default_timezone_set('Etc/GMT-8');     //这里设置了时区
+			$roomtype = $roomtypeDao->findRoomtypeInfoByID($room->room_type_id);
+			date_default_timezone_set('PRC');     //这里设置了时区
+			// date.timezone = 'PRC';
             $book_time = date("Y-m-d H:i:s");//获取当前时间
-			$bill = new bill($user_id, $roomtype->price, $book_time, $roomtype->price)
-			$bill_id = $billDao->addBillAndGetID($bill)
+			$bill = new bill($user_id, $roomtype->price, $book_time, $roomtype->price);
+			$bill_id = $billDao->addBillAndGetID($bill);
 			if($bill_id !== 0)
 			{
 				$bookrecord = new bookrecord($room_id, $bill_id, $start_time, $end_time);
@@ -108,7 +109,7 @@
 		*/
 		public function scanAllBillByUser($user_id)
 		{
-			$billList = new array();
+			// $billList = new array();
 			$billDao = new billDao();
 			$billList = $billDao->findAllBillInfoByUserID($user_id);
 			return $billList;
