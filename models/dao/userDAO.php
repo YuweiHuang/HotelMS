@@ -181,11 +181,7 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE userinfo SET
-				 	username = '$user->username',
-					user_password = '$user->user_password',
-					truename = '$user->truename',
-					total_point = '$user->total_point',
-					member_type_id = '$user->member_type_id'
+					user_password = '$user->user_password'
 					WHERE user_id = '$user->user_id';";
 
 

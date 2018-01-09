@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-		<li><a href="roomList.php">房间信息查询</a></li>
+		<!-- <li><a href="roomList.php">房间信息查询</a></li> -->
 		<?php 
 			session_start();
 			if (isset($_SESSION['user_account']))
@@ -36,6 +36,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="userProfile.php">会员个人信息</a></li>
         <li><a href="../../controlers/userAction/userLogoffAction.php">注销</a></li>
+        <li><a><?php echo "欢迎您! ".$_SESSION['truename']; ?></a></li>
+      </ul>
+      <?php } else{?>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="userLogin.php">登录</a></li>
       </ul>
       <?php } ?>
     </div><!-- /.navbar-collapse -->

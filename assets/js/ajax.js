@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$.get("../../controlers/userAction/userProfile.php",
 		function(data)
 		{
-			$('#name').val(data['name']);
+			$('#name').val('hhhh');
 			$('#account').val(data['account']);
 			$('#password').val(data['password']);
 			$('#truename').val(data['truename']);

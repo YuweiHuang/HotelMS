@@ -32,7 +32,6 @@
 					<th>预定时间</th>
 					<th>查看详情</th>
 					<th>评价订单</th>
-					<th>删除订单</th>
 				</tr>
 			</thead>
   			<tbody id = "J_TbData">

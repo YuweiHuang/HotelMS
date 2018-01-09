@@ -71,27 +71,27 @@ $(document).ready(function(){
                  html +=        "</div>";
                  html +=     "</td>";
 
-                 html +=     "<td>";
-                 html +=     "<button class='btn btn-small btn-danger deleteOrder' data-toggle='modal' data-target='" +target_delete+ "'>删除</button>";
-                 html +=        "<div class='modal fade' id='" +id_delete+ "' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
-                 html +=            "<div class='modal-dialog'>";
-                 html +=                "<div class='modal-content'>";
-                 html +=                	"<form role='form' action='' method='POST' name='"+data[i].bill_id+"'>";//通过表单,POST bill_id到后端文件,删除订单
-                 html +=                    	"<div class='modal-body'>";
-                 html +=							"<div class='form-group'>"; 
-                 html +=								"<label for='name'>删除订单</label>";
-                 html +=								"<p >确定删除该订单吗?</p>";
-                 html +=							"</div>";
-                 html +=                    	"</div>";
-                 html +=                   		"<div class='modal-footer'>";
-                 html +=                        	"<button type='button' class='btn btn-default' data-dismiss='modal'>取消</button>";
-                 html +=                        	"<button type='button' class='btn btn-danger confirmDelete' id='"+data[i].bill_id+"' data-dismiss='modal'>删除</button>";
-                 html +=                    	"</div>";
-                 html +=					"</form>";
-                 html +=                "</div>";
-                 html +=            "</div>"
-                 html +=        "</div>";
-                 html +=     "</td>";
+                 // html +=     "<td>";
+                 // html +=     "<button class='btn btn-small btn-danger deleteOrder' data-toggle='modal' data-target='" +target_delete+ "'>删除</button>";
+                 // html +=        "<div class='modal fade' id='" +id_delete+ "' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
+                 // html +=            "<div class='modal-dialog'>";
+                 // html +=                "<div class='modal-content'>";
+                 // html +=                	"<form role='form' action='' method='POST' name='"+data[i].bill_id+"'>";//通过表单,POST bill_id到后端文件,删除订单
+                 // html +=                    	"<div class='modal-body'>";
+                 // html +=							"<div class='form-group'>"; 
+                 // html +=								"<label for='name'>删除订单</label>";
+                 // html +=								"<p >确定删除该订单吗?</p>";
+                 // html +=							"</div>";
+                 // html +=                    	"</div>";
+                 // html +=                   		"<div class='modal-footer'>";
+                 // html +=                        	"<button type='button' class='btn btn-default' data-dismiss='modal'>取消</button>";
+                 // html +=                        	"<button type='button' class='btn btn-danger confirmDelete' id='"+data[i].bill_id+"' data-dismiss='modal'>删除</button>";
+                 // html +=                    	"</div>";
+                 // html +=					"</form>";
+                 // html +=                "</div>";
+                 // html +=            "</div>"
+                 // html +=        "</div>";
+                 // html +=     "</td>";
 
                  html += "</tr>";
              }

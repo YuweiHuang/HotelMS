@@ -9,7 +9,7 @@
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
 		{
 			$user_account = test_input($_POST["adaccount_c"]);
-			$user_password = test_i nput($_POST["adpwd_c"]);
+			$user_password = test_input($_POST["adpwd_c"]);
 			$user_rpassword = test_input($_POST["radpwd_c"]);
 			$user_truename = test_input($_POST["adtruename_c"]);
 

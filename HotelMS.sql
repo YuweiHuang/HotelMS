@@ -218,11 +218,11 @@ insert into membertype (member_type, discount, delmark) values ('钻石', 5, 0);
 
 
 
-insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', 20, 1, 0);
+insert into userinfo (authority, register_time, user_account, user_password, truename, total_point, member_type_id, delmark) values (0, '2015-01-12 01:01:01', 'zs@qq.com', '123', '张飞', 20, 1, 0);
 
-insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', 10, 2, 0);
+insert into userinfo (authority, register_time, user_account, user_password, truename, total_point, member_type_id, delmark) values (1, '2014-01-12 01:01:01', '12345', 'hyw', '关羽', 10, 2, 0);
 
-insert into userinfo (authority, register_time, user_account, user_password, total_point, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', 50, 3, 0);
+insert into userinfo (authority, register_time, user_account, user_password, truename, total_point, member_type_id, delmark) values (2, '2013-01-12 01:01:01', '123@163.com', 'ww', '刘备', 50, 3, 0);
 
 
 

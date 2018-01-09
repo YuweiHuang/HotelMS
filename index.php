@@ -32,7 +32,7 @@
               <h3 class="masthead-brand">影子宾馆</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><a href="views/user/userLogin.php">宾馆会员登录</a></li>
+                  <li><a href="views/user/welcome.php">了解更多</a></li>
                   <li><a href="views/admin/adLogin.html">管理员登录</a></li>
                 </ul>
               </nav>
