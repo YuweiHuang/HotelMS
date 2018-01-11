@@ -16,7 +16,7 @@
 			$set_rtel = test_input($_POST["set_rtel"]);
 			$set_rdelmark = 0;
 
-			if($set_rtype == "豪华大床房"){
+			if($set_rtype == "普通大床房"){
 				$set_rtype=1;
 			}
 			if($set_rtype == "精选大床房"){
@@ -47,8 +47,8 @@
 			$productService->addRoom($room);
 
 			echo "<script type='text/javascript'>
-      		alert('添加房间信息成功！');
-      		self.location='../html/admin.php';
+      		
+      		self.location='../../views/admin/roomadmindel.php';
       		</script>";
 
 		}

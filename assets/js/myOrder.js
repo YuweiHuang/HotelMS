@@ -34,10 +34,10 @@ $(document).ready(function(){
                  html +=                "<div class='modal-content'>";
                  html +=                    "<div class='modal-body'>";
                  html +=                        "<label for='name'>详细信息</label>";
-                 html +=                        "<p>住客姓名: " + data[i].customer_name + "</p>";	//住客姓名（customer表数据）注：只显示预定的时候的第一位住客
+                 html +=                        "<p>预定日期: " + data[i].book_time + "</p>";	//住客姓名（customer表数据）注：只显示预定的时候的第一位住客
                  html +=                        "<p>入住日期: " + data[i].in_time + "</p>";
-                 html +=                        "<p>离店日期: " + data[i].check_time + "</p>";
-                 html +=                        "<p>联系方式: " + data[i].phone + "</p>";
+                 html +=                        "<p>离店日期: " + data[i].out_time + "</p>";
+                 html +=                        "<p>获得积分: " + data[i].total_cost + "</p>";
                  html +=                    "</div>";
                  html +=                    "<div class='modal-footer'>";
                  html +=                        "<button type='button' class='btn btn-default' data-dismiss='modal'>关闭</button>";
@@ -112,7 +112,7 @@ $(document).ready(function(){
 
                 alert(comment);
 
-                $.post('../php/test.php',
+                $.post('../../controlers/userAction/updateEvaluate.php',
                     {
                         getId:getId,
                         comment:comment,

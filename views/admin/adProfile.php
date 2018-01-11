@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>宾馆管理系统</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
  
 </head>
 
@@ -27,13 +27,8 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-         <?php require 'common.html'?>
+        
+         <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -41,7 +36,7 @@
 
 <div class="container">
    <div class="jumbotron">
-        <h1 style="font-family:Microsoft YaHei">欢迎你,管理员<small></small></h1>
+        <h3 style="font-family:Microsoft YaHei">欢迎你,管理员<small></small></h3>
     </div>
 
     <div>
@@ -64,11 +59,11 @@
 
     </div>
 
-    <div>
+    <!-- <div>
       <div class="page-header" style="padding: 0px 150px;">
         <h1 style="font-family:Microsoft YaHei;font-size:20px">修改个人信息</h1>
       </div>
-      <form class="form-signin" role="form" action="../php/adProfileUpdate.php" method="POST">
+      <form class="form-signin" role="form" action="../../controlers/adminAction/adUpdateAction.php" method="POST">
       <div style="padding: 0px 300px;">
         <p style="font-family:Microsoft YaHei">管理员号码</p>
         <input type="text" class="form-control" name="adaccount_c" placeholder="管理员号码" value="" required ><br/>
@@ -82,11 +77,11 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="adc_submit">提交</button>
       </div>
       </form>
-    </div>
+    </div> -->
 
 </div>
- <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../../assets/js/adjax.js"></script>
 </body>
 </html>

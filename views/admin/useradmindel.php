@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>用户管理</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+  
+
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
 </head>
 <style>
 .error {color: #FF0000;}
@@ -25,13 +27,8 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-         <?php require 'common.html'?>
+        
+         <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -44,13 +41,13 @@
           <caption><h2 align="center">用户信息</h2></caption>
           <thead>
             <tr>
-              <th>register_time</th>
-              <th>username</th>
-              <th>account</th>
-              <th>password</th>
-              <th>truename</th>
-               <th>point</th>
-                <th>member_type_id</th>
+              <th>注册时间</th>
+             
+              <th>账号</th>
+              <th>密码</th>
+              <th>真实名字</th>
+               <th>积分</th>
+                <!-- <th>用户类型</th> -->
                 <th>修改</th>
                 <th>删除</th>
             </tr>
@@ -63,8 +60,9 @@
 
 </div>
 
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/useradmindel.js"></script>
+  
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/useradmindel1.js"></script>
 </body>
 </html>

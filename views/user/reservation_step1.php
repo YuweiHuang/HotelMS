@@ -36,7 +36,7 @@
       </div>
 
       <div>
-        <form class="form-signin" role="form" action="" method="POST">
+        <form class="form-signin" role="form" action="../../controlers/userAction/addCustomerAction.php" method="POST">
         <div class="page-header" style="padding: 0px 200px;">
           <h1 style="font-family:Microsoft YaHei;font-size:20px">步骤一：填写个人信息</h1>
         </div>
@@ -49,6 +49,9 @@
 
           <p style="font-family:Microsoft YaHei">年龄</p>
           <input type="text" class="form-control" name="age" placeholder="年龄" value="" required><br/>
+
+          <p style="font-family:Microsoft YaHei">性别</p>
+          <input type="text" class="form-control" name="gender" placeholder="性别" value="" required><br/>
 
           <p style="font-family:Microsoft YaHei">所在国家</p>
           <input type="text" class="form-control" name="country" placeholder="所在国家" value="" required><br/>

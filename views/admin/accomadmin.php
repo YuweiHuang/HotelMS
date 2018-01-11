@@ -3,9 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>用户账号管理</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" type="text/css">
-  
+	
+	<link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css" type="text    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
 </head>
 
 <style>
@@ -34,7 +33,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
- <?php require 'common.html'?>
+ <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -149,9 +148,10 @@
     </div>
 
 </div>
-<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap-datetimepicker.fr.js"></script>
+
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap-datetimepicker.fr.js"></script>
 </body>
 </html>

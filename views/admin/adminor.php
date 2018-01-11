@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>宾馆管理系统</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
+
 
   <script>
 $(document).ready(function(){
@@ -79,7 +78,7 @@ $(document).ready(function(){
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <!-- <include src = "common.html"></include> -->
-        <?php require 'commonor.html'?>
+        <?php require 'commonor.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -133,5 +132,7 @@ $(document).ready(function(){
         </div>
     </div>
 </div>
+ <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ function refer(){
     if(t==0){
         location="../../index.php"; //#设定跳转的链接地址
     }
-    document.getElementById('show').innerHTML=""+t+"秒后跳转到会员登录界面"; // 显示倒计时
+    document.getElementById('show').innerHTML=""+t+"秒后跳转到首页"; // 显示倒计时
     t--; // 计数器递减
 }
 </script>

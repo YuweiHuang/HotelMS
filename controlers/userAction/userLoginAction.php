@@ -46,7 +46,7 @@
 				$_SESSION['user_account'] = $user->user_account;
 				$_SESSION['user_password'] = $user->user_password;
 				$_SESSION['truename'] = $user->truename;
-				$_SESSION['user_account'] = $user->user_account;
+				// $_SESSION['user_account'] = $user->user_account;
 				$_SESSION['total_point'] = $user->total_point;
 				$_SESSION['member_type_id'] = $user->member_type_id;
 				echo "<script language='JavaScript'> 

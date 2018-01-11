@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>房间管理</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-</head>
+	
+
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css"></head>
 
 <style>
 .error {color: #FF0000;}
@@ -26,12 +27,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+      
          <?php require 'commonor.html'?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -67,7 +63,7 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:	Microsoft YaHei">添加房间信息</h1>
   </div>
-<form class="form-signin" role="form" action="" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addRoomAction.php" method="POST">
 <div>
 
   <div class = "form-group">
@@ -104,7 +100,9 @@
 
 </div>
 
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+ 
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+
 </body>
 </html>

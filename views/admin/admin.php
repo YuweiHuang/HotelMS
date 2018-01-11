@@ -3,17 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>宾馆管理系统</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
 
-  <script>
-$(document).ready(function(){
-    $("#myNav").affix({
-        offset: {
-            top: 125
-      }
-    });
-});
-</script>
+  
 
 </head>
 
@@ -77,16 +69,16 @@ $(document).ready(function(){
           <button type="submit" class="btn btn-default">Submit</button>
         </form>-->
         <!-- <include src = "common.html"></include> -->
-        <?php require 'common.html'?>
+        <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
 <div class="container">
    <div class="jumbotron">
-        <h1 style="font-family:Microsoft YaHei">欢迎来到管理员界面！</h1>
+        <h2 style="font-family:Microsoft YaHei">欢迎来到管理员界面！</h2>
         <p style="font-family:Microsoft YaHei">请在导航栏中选择您想使用的功能</p>
-        <p style="font-family:Microsoft YaHei">哦对了，下面是功能介绍</p>
+       
     </div>
     <div class="row">
         <div class="col-xs-3" id="myScrollspy">
@@ -150,7 +142,16 @@ $(document).ready(function(){
     </div>
 </div>
 
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: {
+            top: 125
+      }
+    });
+});
+</script>
 </body>
 </html>

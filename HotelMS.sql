@@ -255,3 +255,25 @@ insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, d
 insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 2, 2, 1, '2017-09-12 01:01:01', '2017-09-14 01:01:01', 0);
 
 insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 2, 2, 2, '2017-02-12 01:01:01', '2017-02-14 01:01:01', 0);
+
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (1, 1, 1, 1, '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 1, 1, 1, '2017-03-12 01:01:01', '2017-03-14 01:01:01', 0);
+
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 1, 2, 1, '2017-05-12 01:01:01', '2017-05-14 01:01:01', 0);
+
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (2, 1, 2, 1, '2017-09-12 01:01:01', '2017-09-14 01:01:01', 0);
+
+insert into live (bill_id, room_id, customer_id, user_id, in_time, check_time, delmark) values (3, 1, 2, 2, '2017-02-12 01:01:01', '2017-02-14 01:01:01', 0);
+
+
+
+insert into bookrecord (room_id, bill_id, in_time, out_time, delmark) values (2, 1, '2017-01-12 01:01:01', '2017-01-14 01:01:01', 0);
+
+insert into bookrecord (room_id, bill_id, in_time, out_time, delmark) values (2, 2, '2017-03-12 01:01:01', '2017-03-14 01:01:01', 0);
+
+insert into bookrecord (room_id, bill_id, in_time, out_time, delmark) values (2, 3, '2017-05-12 01:01:01', '2017-05-14 01:01:01', 0);
+
+insert into bookrecord (room_id, bill_id, in_time, out_time, delmark) values (2, 2, '2017-09-12 01:01:01', '2017-09-14 01:01:01', 0);
+
+insert into bookrecord (room_id, bill_id, in_time, out_time, delmark) values (2, 3, '2017-02-12 01:01:01', '2017-02-14 01:01:01', 0);

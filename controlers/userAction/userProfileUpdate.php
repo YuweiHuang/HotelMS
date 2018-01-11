@@ -13,7 +13,8 @@
 			$user_rpassword = test_input($_POST["rpassword_new"]);
 			// $user_truename = test_input($_POST["truename_new"]);
 
-			if($user_password != $user_rpassword) {
+			if($user_password != $user_rpassword) 
+			{
 				echo "<script language='JavaScript'> 
       			alert('两次输入密码不一致！'); 
 				self.location='../../views/user/userProfile.php'; </script> ";
@@ -30,7 +31,7 @@
 				$user->user_password = $user_password;
 				// $user->user_truename = $user_truename;
 
-				$userService->userUpdate($user);
+				$userService->userChangePW($user);
 
 				echo "<script type='text/javascript'>
       			alert('修改密码成功！');

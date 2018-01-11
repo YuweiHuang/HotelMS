@@ -33,7 +33,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
-         <?php require 'common.html'?>
+         <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -65,6 +65,23 @@
 	<div class = "form-group">
    <label for = "floor">联系电话</label>
    <input type="text" class="form-control" name="set_cphone" placeholder="联系电话" required ><br/>
+  </div>
+
+  <div class = "form-group">
+   <label for = "floor">性别</label>
+   <input type="text" class="form-control" name="set_gender" placeholder="性别" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">身份类型</label>
+   <input type="text" class="form-control" name="set_type" placeholder="联系电话" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">城市</label>
+   <input type="text" class="form-control" name="set_city" placeholder="城市" required ><br/>
+  </div>
+  <div class = "form-group">
+   <label for = "floor">国家</label>
+   <input type="text" class="form-control" name="set_country" placeholder="国家" required ><br/>
   </div>
 
   </div>

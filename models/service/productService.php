@@ -25,13 +25,37 @@
 		浏览房间类型
 		return: 所有房间类型列表
 		*/
+		// public function scanRoomType()
+		// {
+		// 	$roomtypelist =  new array();
+		// 	$roomtypeDao = new roomtypeDao();
+		// 	$roomtypelist = $roomtypeDao->findRoomtypeInfo();
+		// 	return $roomtypelist;
+		// }
+
+		/*
+		浏览房间类型
+		return: 所有房间类型列表
+		*/
 		public function scanRoomType()
 		{
-			$roomtypelist =  new array();
+			// $roomtypelist =  new array();
 			$roomtypeDao = new roomtypeDao();
 			$roomtypelist = $roomtypeDao->findRoomtypeInfo();
-			return $roomtypelist;
+			$tempList = array();
+			for($i=0;$i<count($roomtypelist);$i++)
+			{
+				$temp = array('room_type_id'=>$roomtypelist[$i]->room_type_id,
+					'room_type' =>$roomtypelist[$i]->room_type,'bedwidth'=>$roomtypelist[$i]->bedwidth,
+							'roomarea' => $roomtypelist[$i]->roomarea,
+							'wifi' => $roomtypelist[$i]->wifi,
+							'bathroom'=>$roomtypelist[$i]->bathroom,'addbed'=>$roomtypelist[$i]->addbed,
+							'occupantnum,'=>$roomtypelist[$i]->occupantnum,'price'=>$roomtypelist[$i]->price,'deposit'=>$roomtypelist[$i]->deposit);
+				array_push($tempList, $temp);
+			}
+			return $tempList;
 		}
+
 		/*
 		*删除房间类型
 		*/
@@ -72,14 +96,35 @@
 		浏览房间
 		return: 所有房间列表
 		*/
+		// public function scanRoom()
+		// {
+		// 	$roomlist =  new array();
+		// 	$roomDao = new roomDao();
+		// 	$roomlist = $roomDao->findRoomInfo();
+		// 	return $roomlist;
+		// }
+
+		/*
+		浏览房间
+		return: 所有房间列表
+		*/
 		public function scanRoom()
 		{
-			$roomlist =  new array();
+			// $roomlist =  new array();
 			$roomDao = new roomDao();
+			$tempList = array();
 			$roomlist = $roomDao->findRoomInfo();
-			return $roomlist;
+			for($i=0;$i<count($roomlist);$i++)
+			{
+				$temp = array('room_id' =>$roomlist[$i]->room_id,'room_name'=>$roomlist[$i]->room_name,
+							'room_type_id' => $roomlist[$i]->room_type_id,
+							'location' => $roomlist[$i]->location,
+							'room_tel'=>$roomlist[$i]->room_tel);
+				array_push($tempList, $temp);
+			}
+			return $tempList;
 		}
-
+		
 		/*
 		*删除房间
 		*/

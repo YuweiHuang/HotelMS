@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,7 +23,7 @@
 			if (isset($_SESSION['user_account']))
 			{
 		 ?>
-		<li><a href="reservation.php">房间预订</a></li>
+		<!-- <li id="showRoom"><a href="">房间预订</a></li> -->
 		<li><a href="myOrder.php">我的订单</a></li>
       </ul>
       <!-- <form class="navbar-form navbar-left">
@@ -46,3 +45,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<!-- <div id="change"></div> -->

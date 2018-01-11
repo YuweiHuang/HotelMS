@@ -1,12 +1,15 @@
-$(document).ready(function(){
-
-        $.post('../php/userlist.php',{
-        },
-            function(data) {
+$(document).ready(function()
+{
+        $.post('../../controlers/adminAction/userList.php',
+            function(data) 
+            {
+                var data = $.parseJSON(data);
+                
              //第一种：动态创建表格的方式，使用拼接html的方式 （推荐）
             var html = "";
 
-            for( var i = 0; i < data.length; i++ ) {
+            for( var i = 0; i < data.length; i++ ) 
+            {
 
 
                 var target_reset="#"+data[i].user_id+"_reset";
@@ -18,13 +21,11 @@ $(document).ready(function(){
                 var register_time_id="register_time_"+data[i].user_id;
                 var password_id="password_"+data[i].user_id;
                 var account_id="account_"+data[i].user_id;
-                var username_id="username_"+data[i].user_id;
                 var truename_id="truename_"+data[i].user_id;
                 var point_id="point_"+data[i].user_id;
                 var member_type_id_id="member_type_id_"+data[i].user_id;
                  html += "<tr>";
                  html +=     "<td>" + data[i].register_time + "</td>";
-                 html +=     "<td>" + data[i].username + "</td>";
                  html +=     "<td>" + data[i].account + "</td>";
                  html +=     "<td>" + data[i].password + "</td>";
                  html +=     "<td>" + data[i].truename + "</td>";
@@ -111,8 +112,6 @@ $(document).ready(function(){
                 var account_id="#account_"+getId;
                 var account=$(account_id).val();
 
-                var username_id="#username_"+getId;
-                var username=$(username_id).val();
 
                 var truename_id="#truename_"+getId;
                 var truename=$(truename_id).val();
@@ -131,7 +130,6 @@ $(document).ready(function(){
                         register_time:register_time,
                         password:password,
                         account:account,
-                        username:username,
                         truename:truename,
                         point:point,
                         member_type_id:member_type_id
@@ -170,4 +168,4 @@ $(document).ready(function(){
         },'json'
         );
     
-})
+});

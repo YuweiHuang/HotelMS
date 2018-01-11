@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>管理员登录</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
   </head>
   <style>
   .error {color: #FF0000;}
@@ -44,7 +45,7 @@
     <div class="container" style="padding: 200px 450px 50px;font-family:Microsoft YaHei;">
 			<div class="transbox">
 			 <div class="inside">
-      <form class="form-signin" role="form" action="../php/adLogin.php" method="POST">
+      <form class="form-signin" role="form" action="../../controlers/adminAction/adminLoginAction.php" method="POST">
 				</br>
 				<h2 class="form-signin-heading" align="center">管理员登录</h2>
         <input type="text" name="a_account" class="form-control" placeholder="管理员账号" required autofocus>
@@ -65,7 +66,7 @@
 		</div>
     </div>
     
-    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -17,26 +17,26 @@
 			// $user->authority = 0;
 
 			$user = $userService->scanSingleUser($user_account);
-			$loginStatus = $userService->userLogin($user);
+			$loginStatus = $userService->userAdminLogin($user);
 
 			if($loginStatus === 0)
 			{
 				echo "<script language='JavaScript'> 
-						alert('用户名不存在!'); 
+						 
 						self.location='../../views/admin/adLogin.php';
 					  </script> ";
 			}
 			elseif($loginStatus === 1)
 			{
 				echo "<script language='JavaScript'> 
-						alert('密码错误'); 
+						
 						self.location='../../views/admin/adLogin.php';
 					  </script> ";
 			}
 			elseif($loginStatus === 2)
 			{
 				echo "<script language='JavaScript'> 
-						alert('权限错误!'); 
+						
 						self.location='../../views/admin/adLogin.php'; 
 					  </script> ";
 			}
@@ -44,9 +44,11 @@
 			{
 				$_SESSION['user_account'] = $user_account;
 				$_SESSION['user_password'] = $user_password;
+				$_SESSION['user_authority'] = $user->authority;
+				$_SESSION['truename'] = $user->truename;
 				
 				echo "<script language='JavaScript'> 
-						alert('登录成功!'); 
+						
 						self.location='../../views/admin/admin.php'; 
 					  </script> ";
 			}

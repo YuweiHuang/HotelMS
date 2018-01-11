@@ -1,20 +1,19 @@
 
-<!-- 添加用户信息 -->
+<!-- 添加管理员信息 -->
 
 
 <?php 
 	require_once __DIR__.'/../../models/entity/user.php';
 	require_once __DIR__.'/../../models/service/userService.php';
 
-	if (isset($_POST["submit_addu"])) 
+	if (isset($_POST["adr_submit"])) 
 	{
 		if ($_SERVER["REQUEST_METHOD"] == "POST")
 		{
-			$set_utruename = test_input($_POST["set_utruename"]);
-			$set_uname = test_input($_POST["set_uname"]);
-			$set_uaccount = test_input($_POST["set_uaccount"]);
-			$set_upwd = test_input($_POST["set_upwd"]);
-			$set_uauthority = test_input($_POST["set_uauthority"]);
+			$set_utruename = test_input($_POST["adtruename"]);
+			$set_uname = test_input($_POST["adname"]);
+			$set_uaccount = test_input($_POST["account"]);
+			$set_upwd = test_input($_POST["radpwd"]);
 
 			$user = new user();
 			$userService = new userService();
@@ -23,18 +22,16 @@
 			$user->user_account = $set_uaccount;
 			$user->user_password = $set_upwd;
 			$user->truename = $set_utruename;
-			$user->uauthority = $set_uauthority;
+			$user->authority = 0;
 			$user->total_point = 0;
 			$user->member_type_id = 1;
 			$user->delmark = 0;
-			$user->register_time = date("Y/m/d");
-
-
+			date_default_timezone_set('PRC');     //这里设置了时区
+            $user->register_time = date("Y-m-d H:i:s");//
 			$userService->userRegister($user);
-
 			echo "<script type='text/javascript'>
-      		alert('添加用户信息成功！');
-      		self.location='../html/admin.php';
+      		
+      		self.location='../../views/admin/useradmindel.php';
       		</script>";
 
 		}

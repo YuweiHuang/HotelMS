@@ -26,12 +26,6 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
          <?php require 'commonor.html'?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -72,7 +66,7 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:	Microsoft YaHei">添加用户信息</h1>
   </div>
-<form class="form-signin" role="form" action="" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addUserAction.php" method="POST">
 <div>
 
   <div class = "form-group">

@@ -44,7 +44,6 @@
     <script src="../../assets/js/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="../../assets/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../../assets/js/money.js"></script>
     <script type="text/javascript" src="../../assets/js/myOrder.js"></script>
     </body>
 </html>

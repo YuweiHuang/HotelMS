@@ -16,7 +16,7 @@
 			if($user_password != $user_rpassword) {
 				echo "<script language='JavaScript'> 
       			alert('两次输入密码不一致！'); 
-				self.location='../html/userProfile.php'; </script> ";
+				self.location='../../views/admin/adProfile.php'; </script> ";
 			}
 
 			else {
@@ -34,7 +34,8 @@
 
 				echo "<script type='text/javascript'>
       			alert('修改个人信息成功！');
-      			self.location='../html/welcome.php';
+
+      			self.location='../../views/admin/admin.php';
       			</script>";
 			}
 			

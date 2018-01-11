@@ -11,6 +11,7 @@
 	$userData = array(
 			'account' => $user->user_account,
 			'password' => $user->user_password,
-			'truename' => $user->truename,
+			'truename' => $user->truename);
 	echo json_encode($userData);
- ?>
+
+?>

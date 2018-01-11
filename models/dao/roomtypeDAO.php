@@ -20,7 +20,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM roomtype WHERE delmark = 0 AND room_type_id=".$room_type_id.";";
+			$sql = "SELECT * FROM roomtype WHERE delmark = 0 AND room_type_id='$room_type_id';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
   			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -52,7 +52,7 @@
 			$sql = "SELECT * FROM roomtype WHERE delmark = 0;";
 			$result = null;
 			$result = mysqli_query($con, $sql);
-			$arrayall =array();
+			$arrayall = array();
   			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
   			{
   				$roomtype = new roomtype();

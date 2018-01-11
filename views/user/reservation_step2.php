@@ -68,7 +68,7 @@
           <button class="btn btn-lg btn-primary btn-block" type="submit" name="accom_submit">提交</button><br/>
         </div>
         </form> -->
-
+    <form class="form-signin" role="form" action="../../controlers/userAction/reservationAction.php" method="POST">
         <div class="page-header" style="padding: 0px 200px;">
           <h1 style="font-family:Microsoft YaHei;font-size:20px">步骤二：选择房间</h1>
           <span class="error"></span>
@@ -90,7 +90,7 @@
           <div class = "form-group">
            <label for = "floor">入住时间</label>
             <div class="input-append date form_datetime">
-              <input id="dtp1" name="set_dt2" size="16" class="form-control" type="text" value="" readonly>
+              <input id="dtp1" name="set_dt1" size="16" class="form-control" type="text" value="" readonly>
               <span class="add-on"><i class="icon-remove"></i></span>
               <span class="add-on"><i class="icon-th"></i></span>
             </div>

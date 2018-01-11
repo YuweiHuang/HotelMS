@@ -32,8 +32,8 @@
       <p style="font-family:Microsoft YaHei">会员账号</p>
       <input type="text" class="form-control" id="account" value="" disabled="disabled"><br/>
 
-      <p style="font-family:Microsoft YaHei">密码</p>
-      <input type="text" class="form-control" id="password" value="" disabled="disabled"><br/>
+      <!-- <p style="font-family:Microsoft YaHei">密码</p>
+      <input type="text" class="form-control" id="password" value="" disabled="disabled"><br/> -->
 
       <p style="font-family:Microsoft YaHei">真实姓名</p>
       <input type="text" class="form-control" id="truename" value="" disabled="disabled"><br/>

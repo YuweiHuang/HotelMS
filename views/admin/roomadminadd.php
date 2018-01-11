@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>房间管理</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+ <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
 </head>
 
 <style>
@@ -26,13 +26,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-         <?php require 'common.html'?>
+         <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
@@ -43,7 +37,7 @@
   <div class="page-header" >
     <h1 align="center" style="font-family:  Microsoft YaHei">添加房间信息</h1>
   </div>
-<form class="form-signin" role="form" action="" method="POST">
+<form class="form-signin" role="form" action="../../controlers/adminAction/addRoomAction.php" method="POST">
 <div>
 
   <div class = "form-group">
@@ -55,22 +49,22 @@
    <label for = "type">房间类型</label>
    <select id = "type" class = "form-control" name="set_rtype">
     <option  value="普通大床房">普通大床房</option>
-    <option  value="普通双床房">普通双床房</option>
-    <option  value="豪华大床房">豪华大床房</option>
-    <option  value="豪华双床房">豪华双床房</option>
     <option  value="精选大床房">精选大床房</option>
-    <option  value="精选双床房">精选双床房</option>
+    <option  value="豪华大床房">豪华大床房</option>
+    <option  value="商务大床房">商务大床房</option>
+    <option  value="豪华套房">豪华套房</option>
+    <option  value="总统套房">总统套房</option>
    </select>
    <br/>
   </div>
 
   <div class = "form-group">
    <label for = "floor">房间楼层</label>
-   <input type="text" class="form-control" name="set_location" placeholder="房间楼层" required ><br/>
+   <input type="text" class="form-control" name="set_rlocation" placeholder="房间楼层" required ><br/>
   </div>
    <div class = "form-group">
    <label for = "floor">房间电话</label>
-   <input type="text" class="form-control" name="set_tel" placeholder="房间电话" required ><br/>
+   <input type="text" class="form-control" name="set_rtel" placeholder="房间电话" required ><br/>
   </div>
 
 
@@ -83,7 +77,9 @@
 
 </div>
 
-  <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+ 
+
+<script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>

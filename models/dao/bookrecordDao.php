@@ -3,6 +3,7 @@
 	*room DAO
 	*/
 	require_once __DIR__.'/../entity/bookrecord.php';
+	require_once __DIR__.'/../entity/room.php';
 	require_once __DIR__.'/../../commons/dbConnect.php';
 
 	class bookrecordDao
@@ -27,7 +28,7 @@
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-			$bookrecord->book_record_id = $row['book_record_Id'];
+			$bookrecord->book_record_id = $row['book_record_id'];
 			$bookrecord->room_id        = $row['room_id'];
 			$bookrecord->in_time        = $row['in_time'];
 			$bookrecord->out_time       = $row['out_time'];
@@ -110,7 +111,13 @@
 			{
 				while($row = mysqli_fetch_assoc($result))
 				{
-		  			array_push($all_empty_room, $row);
+					// $room = new room();
+					// $room->room_id = ;
+					// $room->bill_id = $row['bill_id'];
+					// $room->room_id = $row['room_id'];
+					// $room->in_time = $row['in_time'];
+					// $room->out_time = $row['out_time'];
+		  			array_push($all_empty_room, $row['room_id']);
 				}
 			} 
 
@@ -188,13 +195,13 @@
 
 			$sql = "UPDATE bookrecord 
 					SET
-						room_id    = '$bookrecord->room_id',
-						bill_id = '$bookrecord->bill_id',
-						in_time     = '$bookrecord->in_time',
-						room_tel     = '$bookrecord->room_tel',
-						in_time      = '$bookrecord->in_time',
-						out_time         = '$bookrecord->out_time',
-						delmark      = '$bookrecord->delmark'
+						room_id  = '$bookrecord->room_id',
+						bill_id  = '$bookrecord->bill_id',
+						in_time  = '$bookrecord->in_time',
+						room_tel = '$bookrecord->room_tel',
+						in_time  = '$bookrecord->in_time',
+						out_time = '$bookrecord->out_time',
+						delmark  = '$bookrecord->delmark'
 					WHERE bill_id = '$bookrecord->bill_id';";
 
 			if (mysqli_query($con, $sql)) 

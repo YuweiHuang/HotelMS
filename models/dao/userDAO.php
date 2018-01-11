@@ -76,11 +76,47 @@
   			return $user;
 
 		}
+		// /*
+		// *查看所有用户信息
+		// *返回array数组
+		// */
+		// public function findUserInfo()
+		// {
+			
+
+		// 	$dbCon = new dbConnect();
+		// 	$dbCon->initConnnect();
+		// 	$con = $dbCon->connect;
+
+		// 	$sql = "SELECT * FROM userinfo WHERE delmark = 0;";
+		// 	$result = null;
+		// 	$result = mysqli_query($con, $sql);
+		// 	$arrayall =array();
+  // 			while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+  // 			{
+  // 				$user = new user();
+  // 				$user->user_id = $row['user_id'];
+  // 				$user->authority = $row['authority'];
+  // 				$user->register_time = $row['register_time'];
+  // 				$user->user_account = $row['user_account'];
+  // 				$user->user_password = $row['user_password'];
+  // 				$user->truename = $row['truename'];
+  // 				$user->total_point = $row['total_point'];
+  // 				$user->member_type_id = $row['member_type_id'];
+  // 				$user->delmark = $row['delmark'];
+  // 				array_push($arrayall, $user);
+		// 	}
+  // 			$dbCon->closeConnect();
+
+  // 			return $arrayall;
+
+		// }
+
 		/*
 		*查看所有用户信息
 		*返回array数组
 		*/
-		public function findUserInfo()
+		public function findUserInfo($authority1)
 		{
 			
 
@@ -88,7 +124,7 @@
 			$dbCon->initConnnect();
 			$con = $dbCon->connect;
 
-			$sql = "SELECT * FROM userinfo WHERE delmark = 0;";
+			$sql = "SELECT * FROM userinfo WHERE delmark = 0 AND authority='$authority1';";
 			$result = null;
 			$result = mysqli_query($con, $sql);
 			$arrayall =array();
@@ -111,6 +147,42 @@
   			return $arrayall;
 
 		}
+
+		/*
+		添加用户
+		input:user 对象
+		return:是否添加成功
+		*/
+		// public function addUser($user)
+		// {
+		// 	$dbCon = new dbConnect();
+		// 	$dbCon->initConnnect();
+		// 	$con = $dbCon->connect;
+			
+		// 	$sql = "INSERT INTO userinfo(
+		// 		 	authority,
+		// 		 	register_time,
+		// 		 	user_account,
+		// 			user_password,
+		// 			total_point,
+		// 			member_type_id) VALUES (
+		// 			'$user->authority',
+		// 			'$user->register_time',
+		// 			'$user->user_account',
+		// 			'$user->user_password',
+		// 			'$user->total_point',
+		// 			'$user->member_type_id');"; 
+		// 	if (mysqli_query($con, $sql)) 
+		// 	{
+		// 		return true;
+		// 	}
+		// 	else
+		// 	{
+		// 		echo "error:".$sql."</br>".mysqli_error($con);
+		// 		return false;
+		// 	}
+		// }
+
 		/*
 		添加用户
 		input:user 对象
@@ -123,12 +195,14 @@
 			$con = $dbCon->connect;
 			
 			$sql = "INSERT INTO userinfo(
+			        truename,
 				 	authority,
 				 	register_time,
 				 	user_account,
 					user_password,
 					total_point,
 					member_type_id) VALUES (
+					'$user->truename',
 					'$user->authority',
 					'$user->register_time',
 					'$user->user_account',
@@ -145,6 +219,7 @@
 				return false;
 			}
 		}
+
 		/*
 		用于删除用户
 		input:$user_id
@@ -174,6 +249,41 @@
 		input: $user
 		return:是否成功
 		*/
+// 		public function updateUser($user)
+// 		{
+// 			$dbCon = new dbConnect();
+// 			$dbCon->initConnnect();
+// 			$con = $dbCon->connect;
+
+// 			$sql="UPDATE userinfo SET
+// <<<<<<< HEAD
+// 					user_password = '$user->user_password'
+// =======
+// 				 	username = '$user->username',
+// 					user_password = '$user->user_password',
+// 					truename = '$user->truename',
+// 					total_point = '$user->total_point',
+// 					member_type_id = '$user->member_type_id'
+// >>>>>>> 9eb4604d7ae52b58c9432af9bb7ba31b2609be67
+// 					WHERE user_id = '$user->user_id';";
+
+
+// 			if (mysqli_query($con, $sql)) 
+// 			{
+// 				return true;
+// 			}
+// 			else
+// 			{
+// 				echo "error:".$sql."</br>".mysqli_error($con);
+// 				return false;
+// 			}
+// 		}
+
+		/*
+		用于更新用户信息
+		input: $user
+		return:是否成功
+		*/
 		public function updateUser($user)
 		{
 			$dbCon = new dbConnect();
@@ -181,7 +291,65 @@
 			$con = $dbCon->connect;
 
 			$sql="UPDATE userinfo SET
+				 	username = '$user->username',
+					user_password = '$user->user_password',
+					truename = '$user->truename',
+					total_point = '$user->total_point',
+					member_type_id = '$user->member_type_id'
+					WHERE user_id = '$user->user_id';";
+
+
+			if (mysqli_query($con, $sql)) 
+			{
+				return true;
+			}
+			else
+			{
+				echo "error:".$sql."</br>".mysqli_error($con);
+				return false;
+			}
+		}
+
+		/*
+		用于更新用户信息
+		input: $user
+		return:是否成功
+		*/
+		public function updateUserPassword($user)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql="UPDATE userinfo SET
 					user_password = '$user->user_password'
+					WHERE user_id = '$user->user_id';";
+
+
+			if (mysqli_query($con, $sql)) 
+			{
+				return true;
+			}
+			else
+			{
+				echo "error:".$sql."</br>".mysqli_error($con);
+				return false;
+			}
+		}
+
+		/*
+		用于更新用户积分
+		input: $user
+		return:是否成功
+		*/
+		public function updateUserPoint($user_id, $total_point)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql="UPDATE userinfo SET
+					total_point = '$user->total_point'
 					WHERE user_id = '$user->user_id';";
 
 

@@ -11,14 +11,14 @@
 		private $out_time;/*离店时间2018-01-01 01:01:01*/
 		private $delmark;/*是否删除*/
 		
-		function __construct($room_id, $bill_id, $in_time, $out_time)
-		{
-			$this->room_id = $room_id;
-			$this->bill_id = $bill_id;
-			$this->in_time = $in_time;
-			$this->out_time = $out_time;
-			$this->delmark = 0;
-		}
+		// function __construct($room_id, $bill_id, $in_time, $out_time)
+		// {
+		// 	$this->room_id = $room_id;
+		// 	$this->bill_id = $bill_id;
+		// 	$this->in_time = $in_time;
+		// 	$this->out_time = $out_time;
+		// 	$this->delmark = 0;
+		// }
 
 		public function __get($key)
 	    {

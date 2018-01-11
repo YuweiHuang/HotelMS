@@ -89,7 +89,6 @@
 
 			$sql = "INSERT INTO bill (
 					user_id, 
-					totalroom, 
 					total_cost, 
 					book_time, 
 					total_point, 
@@ -97,7 +96,6 @@
 					evaluate_words, 
 					delmark) VALUES (
 					'$bill->user_id',
-					'$bill->totalroom',
 					'$bill->total_cost',
 					'$bill->book_time',
 					'$bill->total_point',
@@ -128,7 +126,6 @@
 
 			$sql = "INSERT INTO bill (
 					user_id, 
-					totalroom, 
 					total_cost, 
 					book_time, 
 					total_point, 
@@ -136,16 +133,16 @@
 					evaluate_words, 
 					delmark) VALUES (
 					'$bill->user_id',
-					'$bill->totalroom',
 					'$bill->total_cost',
 					'$bill->book_time',
 					'$bill->total_point',
 					'$bill->evaluate_score',
 					'$bill->evaluate_words',
-					'$bill->delmark');";
+					0);";
 
 			if (mysqli_query($con, $sql)) 
 			{
+				echo mysqli_insert_id($con);
 				return mysqli_insert_id($con);
 			}
 			else
@@ -191,11 +188,32 @@
 			$con = $dbCon->connect;
 
 			$sql = "UPDATE bill SET 
-					totalroom = '$bill->totalroom',
 					total_cost = '$bill->total_cost',
 					evaluate_score = '$bill->evaluate_score',
 					evaluate_words = '$bill->evaluate_words'
 					WHERE bill_id = '$bill->bill_id';";
+
+			if (mysqli_query($con, $sql)) 
+			{
+				return true;
+			}
+			else
+			{
+				echo "error:".$sql."</br>".mysqli_error($con);
+				return false;
+			}
+		}
+
+		public function updateBillEvaluate($bill_id,$point,$comment)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "UPDATE bill SET 
+					evaluate_score = '$point',
+					evaluate_words = '$comment'
+					WHERE bill_id = '$bill_id';";
 
 			if (mysqli_query($con, $sql)) 
 			{

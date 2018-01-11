@@ -33,7 +33,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
-         <?php require 'common.html'?>
+         <?php require 'common.php' ?>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

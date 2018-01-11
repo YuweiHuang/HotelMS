@@ -1,5 +1,5 @@
 $(document).ready( function() {
-        $.post('../../controlers/userAction/customerSelect.php',
+        $.post('../../controlers/userAction/customerShow.php',
             function(data) 
             {
 
@@ -26,13 +26,13 @@ $(document).ready( function() {
             $(".selectcustomer").on("click", function () 
             {
                 var getId = $(this).attr("id"); 
-                $.post('../php/test.php',
+                $.post('../../controlers/userAction/customerSelect.php',
                     {
                         getId:getId
                     },
                     function()
                     {
-                        window.location.href="reservation_step2.html";
+                        // window.location.href="reservation_step2.php";
                     }
                 );
             });

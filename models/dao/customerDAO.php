@@ -43,6 +43,80 @@
 		}
 
 		/*
+		查看住客信息
+		input:住客id
+		return: customer 对象
+		*/
+		public function findCustomerInfoByUserId($user_id)
+		{
+			$customer = new customer();
+			
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql    = "SELECT * FROM customer WHERE customer_id='$customer_id';";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+			$row    = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+			$customer->customer_id    = $row['customer_id'];
+			$customer->user_id        = $row['user_id'];
+			$customer->customer_name           = $row['customer_name'];
+			$customer->age            = $row['age'];
+			$customer->gender         = $row['gender'];
+			$customer->country        = $row['country'];
+			$customer->city           = $row['city'];
+			$customer->phone          = $row['phone'];
+			$customer->indentity_type = $row['indentity_type'];
+			$customer->indentity      = $row['indentity'];
+			$customer->delmark        = $row['delmark'];
+
+  			$dbCon->closeConnect();
+
+  			return $customer;
+		}
+
+		public function findAllCustomerInfoByUserId($user_id)
+		{
+			$dbCon = new dbConnect();
+			$dbCon->initConnnect();
+			$con = $dbCon->connect;
+
+			$sql = "SELECT * FROM customer WHERE user_id = '$user_id';";
+			$result = null;
+			$result = mysqli_query($con, $sql);
+			
+			$all_customer = array();
+
+			if (mysqli_num_rows($result) > 0) 
+			{
+				while($row = mysqli_fetch_assoc($result))
+				{
+					$customer = new customer();
+
+		  			$customer->customer_id    = $row['customer_id'];
+					$customer->user_id        = $row['user_id'];
+					$customer->customer_name  = $row['customer_name'];
+					$customer->age            = $row['age'];
+					$customer->gender         = $row['gender'];
+					$customer->country        = $row['country'];
+					$customer->city           = $row['city'];
+					$customer->phone          = $row['phone'];
+					$customer->indentity_type = $row['indentity_type'];
+					$customer->indentity      = $row['indentity'];
+					$customer->delmark        = $row['delmark'];
+
+		  			array_push($all_customer, $customer);
+				}
+			} 
+			
+  			$dbCon->closeConnect();
+
+  			return $all_customer;
+		}
+
+		/*
 		添加住客
 		input:customer 对象
 		return:是否添加成功
